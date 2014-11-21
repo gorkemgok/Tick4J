@@ -80,7 +80,7 @@ public class NetworkDataSet extends DataSet{
 			if (!rowDate.before(from) && !rowDate.after(to) && !rowDate.equals(to)){
 				int ci = 0;
 				for (int i=startCol;i<startCol+colCount;i++){
-					result[ri][ci] = (double)r.getData(i).get();
+					result[ri][ci] = (Double)r.getData(i).get();
 					ci++;
 				}
 				ri++;

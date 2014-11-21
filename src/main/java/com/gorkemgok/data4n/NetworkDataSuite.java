@@ -36,12 +36,12 @@ public class NetworkDataSuite {
 			for (int i=1;i<rawDataSet.getInputCount()+1;i++){
 				@SuppressWarnings("rawtypes")
 				Data d = r.getData(i);
-				double v = (double)d.get();
+				double v = (Double)d.get();
 				double cv = Calculator.calculate(v, rawDataSet.getModel().getDataInFn()[i-1]);
 				row.addData(new Data<Double>(cv));
 			}
 			for (int i=rawDataSet.getInputCount()+1;i<rawDataSet.getInputCount()+rawDataSet.getOutputCount()+1;i++){
-				double v = (double)r.getData(i).get();
+				double v = (Double)r.getData(i).get();
 				double cv = Calculator.calculate(v, rawDataSet.getModel().getDataInFn()[i-rawDataSet.getInputCount()]);
 				row.addData(new Data<Double>(cv));
 			}
@@ -101,7 +101,7 @@ public class NetworkDataSuite {
 	@SuppressWarnings("rawtypes")
 	public static Data calculateData(Data data, IFunction function,double... params){
 		if (data.get() instanceof Double){
-			return new Data<Double>(function.calculate((double)data.get(), "", params));
+			return new Data<Double>(function.calculate((Double)data.get(), "", params));
 		}else{
 			return data;
 		}
@@ -114,7 +114,7 @@ public class NetworkDataSuite {
 				Date rowDate = (Date)r.getData(0).get();
 				if (!rowDate.before(set.getModel().getTrainFrom()) && !rowDate.after(set.getModel().getTestTo())){
 					for (int i=1;i<set.getInputCount()+1;i++){
-						double v = (double)r.getData(i).get();
+						double v = (Double)r.getData(i).get();
 						if (a==0){
 							result[i-1][0] = v;
 							result[i-1][1] = v;
@@ -123,7 +123,7 @@ public class NetworkDataSuite {
 						if (result[i-1][1] > v) result[i-1][1] = v;
 					}
 					for (int i=set.getInputCount()+1;i<set.getInputCount()+set.getOutputCount()+1;i++){
-						double v = (double)r.getData(i).get();
+						double v = (Double)r.getData(i).get();
 						if (a==0){
 							result[i-1][0] = v;
 							result[i-1][1] = v;

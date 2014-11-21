@@ -11,7 +11,7 @@ public class Console {
 	public static final int LEVEL_INFORMATION = 1;
 	public static final int LEVEL_DETAIL = 2;
 	public static final int LEVEL_DEBUG = 3;
-	private static DefaultListModel<String> model = null;
+	private static DefaultListModel model = null;
 	private static JTextArea ta = null;
 	private static int level = 1;
 	private static int appender = 0;
@@ -55,7 +55,7 @@ public class Console {
 	public static void switchLevel(int level){
 		Console.level = level;
 	}
-	public static void switchListModel(DefaultListModel<String> model){
+	public static void switchListModel(DefaultListModel model){
 		Console.model = model;
 	}
 	public static void switchTextArea(JTextArea ta){

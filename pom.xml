@@ -7,6 +7,12 @@
     <groupId>com.gorkemgok.data4n</groupId>
     <artifactId>Data4N</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    
+  
+    <dependencies>
+    	<dependency>
+    		<groupId>org.javolution</groupId>
+    		<artifactId>javolution-core-java</artifactId>
+    		<version>6.0.0</version>
+    	</dependency>
+    </dependencies>
 </project>
