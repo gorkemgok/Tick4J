@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.gorkemgok.data4n</groupId>
+  <artifactId>Data4N</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20141209.115416</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20141209115416</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0-20141209.115416-1</value>
+        <updated>20141209115416</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-20141209.115416-1</value>
+        <updated>20141209115416</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
