@@ -19,5 +19,4 @@ public class DataRow {
 	public int getColCount(){
 		return data.size();
 	}
-
 }
