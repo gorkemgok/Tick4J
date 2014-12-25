@@ -4,10 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.gorkemgok.data4n.core.row.DynamicDataRow;
+import com.gorkemgok.data4n.core.type.Data;
 import com.gorkemgok.data4n.model.Model;
 import com.gorkemgok.data4n.model.function.*;
-
-import com.gorkemgok.data4n.model.function.Calculator;
 
 public class NetworkDataSuite {
 	private NetworkDataSet initialDataSet;
@@ -26,8 +26,8 @@ public class NetworkDataSuite {
 			rawDataSet = NetworkDataSuite.normalizeDataSet(initialDataSet);
 		}
 		NetworkDataSet calculatedDataSet = new NetworkDataSet(initialDataSet.getModel());
-		for (DataRow r : rawDataSet.getRowList()){
-			DataRow row = new DataRow();
+		for (DynamicDataRow r : rawDataSet.getRowList()){
+			DynamicDataRow row = new DynamicDataRow();
 			row.addData(r.getData(0));
 			Date rDate = (Date)r.getData(0).get();
 			if (!rDate.before(new SimpleDateFormat("dd/MM/yy").parse("01/01/10"))){
@@ -79,12 +79,12 @@ public class NetworkDataSuite {
 		NetworkDataSet set = new NetworkDataSet(rawSet.getModel());
 		try{
 			double[][] maxMin = NetworkDataSuite.getMaxMin(rawSet);
-			for (DataRow r : rawSet.getRowList()){
+			for (DynamicDataRow r : rawSet.getRowList()){
 				Date rDate = (Date)r.getData(0).get();
 				if (!rDate.before(new SimpleDateFormat("dd/MM/yy").parse("01/01/10"))){
 					System.currentTimeMillis();
 				}
-				DataRow row = new DataRow();
+				DynamicDataRow row = new DynamicDataRow();
 				row.addData(r.getData(0));
 				for (int i=1;i < r.getColCount();i++){
 					Data data = r.getData(i);
@@ -110,7 +110,7 @@ public class NetworkDataSuite {
 		double[][] result = new double[set.getInputCount()+set.getOutputCount()][2];
 		try{
 			int a = 0;
-			for (DataRow r : set.getRowList()){
+			for (DynamicDataRow r : set.getRowList()){
 				Date rowDate = (Date)r.getData(0).get();
 				if (!rowDate.before(set.getModel().getTrainFrom()) && !rowDate.after(set.getModel().getTestTo())){
 					for (int i=1;i<set.getInputCount()+1;i++){

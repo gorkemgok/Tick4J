@@ -3,6 +3,8 @@ package com.gorkemgok.data4n;
 import java.text.ParseException;
 import java.util.Date;
 
+import com.gorkemgok.data4n.core.DataSet;
+import com.gorkemgok.data4n.core.row.DynamicDataRow;
 import com.gorkemgok.data4n.model.Model;
 
 public class NetworkDataSet extends DataSet{
@@ -48,7 +50,7 @@ public class NetworkDataSet extends DataSet{
 	}
 	public Date[] getDateArray(Date from, Date to){
 		int rowCount = 0;
-		for (DataRow r : this.getRowList()){
+		for (DynamicDataRow r : this.getRowList()){
 			Date rowDate = (Date)r.getData(0).get();
 			if (!rowDate.before(from) && !rowDate.after(to) && !rowDate.equals(to)){
 				rowCount++;
@@ -56,7 +58,7 @@ public class NetworkDataSet extends DataSet{
 		}
 		Date[] result = new Date[rowCount];
 		int ri = 0;
-		for (DataRow r : this.getRowList()){
+		for (DynamicDataRow r : this.getRowList()){
 			Date rowDate = (Date)r.getData(0).get();
 			if (!rowDate.before(from) && !rowDate.after(to) && !rowDate.equals(to)){
 				result[ri] = (Date)r.getData(0).get();
@@ -67,7 +69,7 @@ public class NetworkDataSet extends DataSet{
 	}
 	public double[][] getDoubleArray(Date from, Date to,int startCol,int colCount){
 		int rowCount = 0;
-		for (DataRow r : this.getRowList()){
+		for (DynamicDataRow r : this.getRowList()){
 			Date rowDate = (Date)r.getData(0).get();
 			if (!rowDate.before(from) && !rowDate.after(to) && !rowDate.equals(to)){
 				rowCount++;
@@ -75,7 +77,7 @@ public class NetworkDataSet extends DataSet{
 		}
 		double[][] result = new double[rowCount][colCount];
 		int ri = 0;
-		for (DataRow r : this.getRowList()){
+		for (DynamicDataRow r : this.getRowList()){
 			Date rowDate = (Date)r.getData(0).get();
 			if (!rowDate.before(from) && !rowDate.after(to) && !rowDate.equals(to)){
 				int ci = 0;

@@ -3,6 +3,7 @@ package com.gorkemgok.data4n.util;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 
+@SuppressWarnings("unchecked")
 public class Console {
 	public static final int APPENDER_CONSOLE = 0;
 	public static final int APPENDER_JLIST = 1;
@@ -11,6 +12,7 @@ public class Console {
 	public static final int LEVEL_INFORMATION = 1;
 	public static final int LEVEL_DETAIL = 2;
 	public static final int LEVEL_DEBUG = 3;
+	@SuppressWarnings("rawtypes")
 	private static DefaultListModel model = null;
 	private static JTextArea ta = null;
 	private static int level = 1;
@@ -55,7 +57,7 @@ public class Console {
 	public static void switchLevel(int level){
 		Console.level = level;
 	}
-	public static void switchListModel(DefaultListModel model){
+	public static void switchListModel(@SuppressWarnings("rawtypes") DefaultListModel model){
 		Console.model = model;
 	}
 	public static void switchTextArea(JTextArea ta){

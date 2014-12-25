@@ -1,4 +1,4 @@
-package com.gorkemgok.data4n;
+package com.gorkemgok.data4n.core.type;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
