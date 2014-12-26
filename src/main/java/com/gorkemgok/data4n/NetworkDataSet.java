@@ -3,8 +3,8 @@ package com.gorkemgok.data4n;
 import java.text.ParseException;
 import java.util.Date;
 
-import com.gorkemgok.data4n.core.DataSet;
 import com.gorkemgok.data4n.core.row.DynamicDataRow;
+import com.gorkemgok.data4n.core.set.DataSet;
 import com.gorkemgok.data4n.model.Model;
 
 public class NetworkDataSet extends DataSet{
