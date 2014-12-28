@@ -8,8 +8,9 @@
     <artifactId>Data4N</artifactId>
     <version>1.1-SNAPSHOT</version>
     <properties>
-	    <!-- github server corresponds to entry in ~/.m2/settings.xml -->
-	    <github.global.server>github</github.global.server>
+	    <github.global.server>github</github.global.server>	<!-- github server corresponds to entry in ~/.m2/settings.xml -->
+		<javolution.version>6.0.0</javolution.version>
+		<junit.version>4.12</junit.version>
 	</properties>
     <build>
 	  	<plugins>
@@ -46,19 +47,29 @@
 	        </plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
+
     <dependencies>
+
     	<dependency>
     		<groupId>org.javolution</groupId>
     		<artifactId>javolution-core-java</artifactId>
-    		<version>6.0.0</version>
+    		<version>${javolution.version}</version>
     	</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+
     </dependencies>
-    
-    <distributionManagement>
-	    <repository>
-	        <id>internal.repo</id>
-	        <name>Temporary Staging Repository</name>
-	        <url>file://${project.build.directory}/mvn-repo</url>
-	    </repository>
-	</distributionManagement>
+
 </project>

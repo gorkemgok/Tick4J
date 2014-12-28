@@ -2,7 +2,6 @@ package com.gorkemgok.data4n.core.row;
 
 import java.util.ArrayList;
 
-import com.gorkemgok.data4n.core.AbstractDataRow;
 import com.gorkemgok.data4n.core.type.Data;
 @SuppressWarnings("rawtypes")
 public class DynamicDataRow extends AbstractDataRow {

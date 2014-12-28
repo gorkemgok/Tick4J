@@ -45,7 +45,7 @@ public class NetworkDataSuite {
 				double cv = Calculator.calculate(v, rawDataSet.getModel().getDataInFn()[i-rawDataSet.getInputCount()]);
 				row.addData(new Data<Double>(cv));
 			}
-			calculatedDataSet.add(row);
+			//calculatedDataSet.add(row);
 		}
 		if(initialDataSet.getModel().getNormalize()==Model.NORMALIZE_AFTERCALCULATION){
 			this.calculatedDataSet=NetworkDataSuite.normalizeDataSet(calculatedDataSet);
@@ -70,9 +70,9 @@ public class NetworkDataSuite {
 		return new MinMaxNormalizer().calculate(value, "", max,min);
 	}
 	public double denormalizeOutputValue(double value){
-		double min = this.maxMin[this.initialDataSet.getColCount()-2][1];
-		double max = this.maxMin[this.initialDataSet.getColCount()-2][0];
-		return new ReverseMinMaxNormalizer().calculate(value, "", max,min);
+		//double min = this.maxMin[this.initialDataSet.getColCount()-2][1];
+		//double max = this.maxMin[this.initialDataSet.getColCount()-2][0];
+		return 0d;//new ReverseMinMaxNormalizer().calculate(value, "", max,min);
 	}
 	@SuppressWarnings("rawtypes")
 	public static NetworkDataSet normalizeDataSet(NetworkDataSet rawSet){
@@ -91,7 +91,7 @@ public class NetworkDataSuite {
 					Data cdata = NetworkDataSuite.calculateData(data, new MinMaxNormalizer(), maxMin[i-1][0],maxMin[i-1][1]); 
 					row.addData(cdata);
 				}
-				set.add(row);
+				//set.add(row);
 			}
 		}catch(Exception ex){
 			ex.printStackTrace();

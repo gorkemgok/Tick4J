@@ -67,6 +67,11 @@ public class NetworkDataSet extends DataSet{
 		}	
 		return result;
 	}
+
+	public DynamicDataRow[] getRowList() {
+		return new DynamicDataRow[0];
+	}
+
 	public double[][] getDoubleArray(Date from, Date to,int startCol,int colCount){
 		int rowCount = 0;
 		for (DynamicDataRow r : this.getRowList()){

@@ -10,8 +10,4 @@ public class CalculatedDataRow extends DynamicDataRow{
 	public DoubleData getData(int index){
 		return (DoubleData) super.getData(index);
 	}
-	
-	public void setData(int index,DoubleData data){
-		super.setData(index, data);
-	}
 }

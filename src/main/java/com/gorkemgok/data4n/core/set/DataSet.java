@@ -2,8 +2,7 @@ package com.gorkemgok.data4n.core.set;
 
 import java.util.ArrayList;
 
-import com.gorkemgok.data4n.core.IDataRow;
-import com.gorkemgok.data4n.core.IDataSet;
+import com.gorkemgok.data4n.core.row.IDataRow;
 import com.gorkemgok.data4n.core.type.Data;
 
 public class DataSet implements IDataSet{
