@@ -1,7 +1,5 @@
 package com.gorkemgok.data4n.util;
 
-import java.util.Objects;
-
 /**
  * Created by gorkemgok on 26/12/14.
  */

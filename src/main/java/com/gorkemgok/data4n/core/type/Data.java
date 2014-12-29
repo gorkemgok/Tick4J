@@ -2,7 +2,6 @@ package com.gorkemgok.data4n.core.type;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Objects;
 
 public class Data<T> {
 	private T t;
@@ -23,9 +22,8 @@ public class Data<T> {
 		return t.toString();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public boolean equals(Object d1){
-		Object o1 = ((Data) d1).get();
-		T o2 = this.get();
 		if (d1!=null && d1 instanceof Data && ((Data) d1).get().equals(this.get())){
 			return true;
 		}

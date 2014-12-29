@@ -11,7 +11,6 @@ public class TickListener extends AbstractTickListener implements ITickListener{
         super(set);
     }
 
-    @Override
     public void onNewTick(TickDataRow tickDataRow) {
         set.addRow(tickDataRow);
     }

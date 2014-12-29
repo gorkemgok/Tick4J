@@ -1,12 +1,6 @@
 package com.gorkemgok.data4n.util.csv;
 
-import com.gorkemgok.data4n.core.type.Data;
-import com.gorkemgok.data4n.core.type.DateData;
-import com.gorkemgok.data4n.core.type.DoubleData;
-import com.gorkemgok.data4n.util.csv.CSVReader;
-
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by gorkemgok on 26/12/14.

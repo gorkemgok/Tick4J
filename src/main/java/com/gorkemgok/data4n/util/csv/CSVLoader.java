@@ -3,6 +3,7 @@
  */
 package com.gorkemgok.data4n.util.csv;
 
+import com.csvreader.CsvReader;
 import com.gorkemgok.data4n.listener.ICSVTickListener;
 
 import java.io.IOException;
@@ -10,14 +11,12 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 public class CSVLoader {
-    private String fileName;
-    private String format;
     private ArrayList<ICSVTickListener> listeners = new ArrayList<ICSVTickListener>();
-    private CSVReader csv;
+    private CsvReader csv;
     CSVFormat csvFormat;
 
     public CSVLoader(String fileName,String format) throws IOException, ParseException {
-        csv = new CSVReader(fileName);
+        csv = new CsvReader(fileName);
         if (format!=null){
             csvFormat = new CSVFormat(format);
             csvFormat.format();
@@ -43,7 +42,7 @@ public class CSVLoader {
         }
     }
 
-    public CSVReader getCsv() {
+    public CsvReader getCsv() {
         return csv;
     }
 

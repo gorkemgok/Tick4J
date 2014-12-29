@@ -1,12 +1,12 @@
 package com.gorkemgok.data4n.listener;
 
+import com.csvreader.CsvReader;
 import com.gorkemgok.data4n.core.row.TickDataRow;
 import com.gorkemgok.data4n.core.set.TickDataSet;
 import com.gorkemgok.data4n.core.type.DateData;
 import com.gorkemgok.data4n.core.type.DoubleData;
 import com.gorkemgok.data4n.util.csv.CSVFormat;
 import com.gorkemgok.data4n.util.csv.CSVLoader;
-import com.gorkemgok.data4n.util.csv.CSVReader;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -20,9 +20,8 @@ public class CSVTickListener extends AbstractTickListener implements ICSVTickLis
         super(set);
     }
 
-    @Override
     public void onNewTick(CSVLoader csvLoader) {
-        CSVReader csv = csvLoader.getCsv();
+    	CsvReader csv = csvLoader.getCsv();
         try {
             set.addRow(new TickDataRow(
                 new DateData(new SimpleDateFormat(csvLoader.getCsvFormat().getParameter(CSVFormat.DATE)).parse(csv.get(CSVFormat.DATE)+" "+csv.get(CSVFormat.HOUR))),

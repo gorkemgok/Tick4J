@@ -1,7 +1,6 @@
 package com.gorkemgok.data4n.util.csv;
 
 import com.gorkemgok.data4n.core.set.TickDataSet;
-import com.gorkemgok.data4n.core.type.Data;
 import com.gorkemgok.data4n.core.type.DateData;
 import com.gorkemgok.data4n.listener.CSVTickListener;
 import com.gorkemgok.data4n.util.csv.CSVLoader;
