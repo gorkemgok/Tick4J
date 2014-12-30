@@ -27,5 +27,6 @@ public class CSVLoaderTest {
         loader.load();
 
         assertEquals("Wrong load", new DateData(new SimpleDateFormat("MM/dd/yy kk:mm:SSS").parse("08/13/14 16:30:000")), set.getData(0, 0));
+        assertEquals("Wrong load", new DateData(new SimpleDateFormat("MM/dd/yy k:mm:SSS").parse("08/14/14 9:10:000")), set.getData(0, 15));
     }
 }
