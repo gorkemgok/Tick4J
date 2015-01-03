@@ -11,6 +11,7 @@
 	    <github.global.server>github</github.global.server>	<!-- github server corresponds to entry in ~/.m2/settings.xml -->
 		<javolution.version>6.0.0</javolution.version>
 		<junit.version>4.12</junit.version>
+		<exp4j.version>0.4.3</exp4j.version>
 	</properties>
     <build>
 	  	<plugins>
@@ -68,6 +69,12 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.objecthunter</groupId>
+		    <artifactId>exp4j</artifactId>
+		    <version>${exp4j.version}</version>
 		</dependency>
 
     </dependencies>

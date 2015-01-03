@@ -8,7 +8,7 @@ public interface IDataSet {
 	public IDataRow getRow(int index);
 	public void setRow(int index, IDataRow dataRow);
 	
-	public void addSet(IDataSet set);
+	public void addSet(DataSet set);
 	public IDataSet getSet(int index);
 	@SuppressWarnings("rawtypes")
 	public Data getData(int colIndex, int rowIndex);

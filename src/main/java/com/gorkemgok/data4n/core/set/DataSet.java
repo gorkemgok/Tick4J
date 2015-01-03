@@ -5,10 +5,33 @@ import java.util.ArrayList;
 import com.gorkemgok.data4n.core.row.IDataRow;
 import com.gorkemgok.data4n.core.type.Data;
 
-public class DataSet implements IDataSet{
+public class DataSet implements IDataSet, IIterableDataSet{
 	private ArrayList<IDataRow> rows = new ArrayList<IDataRow>();
-	private ArrayList<IDataSet> sets = new ArrayList<IDataSet>();
+	private ArrayList<DataSet> sets = new ArrayList<DataSet>();
+	protected int currentIndex = -1;
+	private String symbol;
+	private String period;
+
+	public DataSet(String symbol, String period) {
+		this.symbol = symbol;
+		this.period = period;
+	}
 	
+	public String getSymbol() {
+		return symbol;
+	}
+
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
+
+	public String getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(String period) {
+		this.period = period;
+	}
 	public void addRow(IDataRow r){
 		rows.add(r);
 	}
@@ -49,11 +72,39 @@ public class DataSet implements IDataSet{
 		return 0;
 	}
 
-	public void addSet(IDataSet set) {
+	public void addSet(DataSet set) {
 		sets.add(set);		
 	}
 
-	public IDataSet getSet(int index) {
+	public DataSet getSet(int index) {
 		return sets.get(index);
+	}
+
+	public boolean next() {
+		for (DataSet set : sets){
+			if (!set.next()) return false;
+		}
+		currentIndex++;
+		if (currentIndex<getRowCount()) {
+			return true;
+		}
+		return false;
+	}
+
+	public IDataRow getRow() {
+		return getRow(currentIndex);
+	}
+
+	public void reset() {
+		currentIndex = -1;
+		for (DataSet set : sets){
+			set.reset();
+		}
+		
+	}
+
+	public void addSet(IDataSet set) {
+		// TODO Auto-generated method stub
+		
 	}
 }

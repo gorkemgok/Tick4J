@@ -4,10 +4,9 @@ import java.text.ParseException;
 import java.util.Date;
 
 import com.gorkemgok.data4n.core.row.DynamicDataRow;
-import com.gorkemgok.data4n.core.set.DataSet;
 import com.gorkemgok.data4n.model.Model;
 
-public class NetworkDataSet extends DataSet{
+public class NetworkDataSet{
 	private Model model;
 	private int inputCount;
 	private int outputCount;
