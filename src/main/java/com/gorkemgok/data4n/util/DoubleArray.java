@@ -36,4 +36,8 @@ public class DoubleArray {
 		}
 		return null;
 	}
+	
+	public double[] getByIndex(int index){
+		return arrays.get(index);
+	}
 }
