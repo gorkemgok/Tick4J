@@ -16,11 +16,18 @@ public class TALibFunctions {
 			System.out.println(f);
 		}
 	}
-	public static Function[] getFunctions() throws SecurityException, ClassNotFoundException{
-		Method[] methods = TALibFunctions.class
-                .getClassLoader()
-                .loadClass(("com.tictactec.ta.lib.CoreAnnotated"))
-                .getMethods();
+	public static Function[] getFunctions(){
+		Method[] methods = null;
+		try {
+			methods = TALibFunctions.class
+			        .getClassLoader()
+			        .loadClass(("com.tictactec.ta.lib.CoreAnnotated"))
+			        .getMethods();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		ArrayList<Function> functions = new ArrayList<Function>();
 		for (Method m : methods) {
 			FuncInfo funcInfo = m.getAnnotation(FuncInfo.class);
