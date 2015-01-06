@@ -25,7 +25,7 @@ public class FunctionCalculator {
 		this.set = set;
 	}
 	
-	public void calculate(double... params) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+	public void calculate(double... params){
 		double inputs[][] = new double[function.getInputs().length][];
 		Object[] optParams = new Object[function.getOptInputs().length];
 		double outputs[][] = new double[function.getOutputs().length][];
@@ -80,7 +80,15 @@ public class FunctionCalculator {
 		for (double[] out : outputs){
 			allParams[j++] = out;
 		}
-		function.getTalibMethod().invoke(new CoreAnnotated(), allParams);
+		try {
+			function.getTalibMethod().invoke(new CoreAnnotated(), allParams);
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
 		//Core core = new Core();
 		//core.sma(startIdx, endIdx, inReal, period, outBegIdx, outNBElement, outReal);
 		
