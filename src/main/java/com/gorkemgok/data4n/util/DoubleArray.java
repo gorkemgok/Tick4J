@@ -7,8 +7,9 @@ import com.gorkemgok.data4n.core.type.DoubleData;
 
 public class DoubleArray {
 	private ArrayList<double[]> arrays = new ArrayList<double[]>();
-	private int[] columns;
-	public DoubleArray(TickDataSet set,int... columns) {
+	private Integer[] columns;
+	
+	public DoubleArray(TickDataSet set,Integer... columns) {
 		this.columns = columns;
 		int rowCount = set.getRowCount();
 		for (int i = 0; i < columns.length; i++) {
