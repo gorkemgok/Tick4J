@@ -52,6 +52,11 @@ public class Function {
 		return outputs.toArray(new Param[outputs.size()]);
 	}
 	
+	
+	public String getName() {
+		return name;
+	}
+
 	public String toString(){
 		String r = name+"("+inputCount+","+optInputCount+","+outputCount+") \n";
 		for (Param p : inputs){
