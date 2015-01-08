@@ -55,12 +55,16 @@ public class FunctionCalculator {
 				optParams[optParamIndex++] = params[paramIndex++];
 			}
 		}
-		
-		DoubleArray doubleArray = new DoubleArray(set,priceColumns.toArray(new Integer[priceColumns.size()]));
+		Integer[] priceColumnsArray = priceColumns.toArray(new Integer[priceColumns.size()]);
+		DoubleArray doubleArray = new DoubleArray(set,priceColumnsArray);
 		int startIdx = 0;
-		int endIdx = doubleArray.get(0).length-1;
-		for (@SuppressWarnings("unused") double[] out : outputs){
-			out = new double[endIdx+1];
+		int endIdx = doubleArray.get(priceColumnsArray[0]).length-1;
+
+		for (int i = 0; i < inputs.length; i++) {
+			inputs[i] = doubleArray.get(priceColumnsArray[i]);
+		}
+		for (int i = 0; i < outputs.length; i++) {
+			outputs[i] = new double[endIdx+1];
 		}
 		MInteger outBegIdx = new MInteger();
 		MInteger outNBElement = new MInteger();

@@ -45,7 +45,7 @@ public class TALibFunctions {
 	            			function.addInput(new Function.Param(inputParameterInfo.paramName(),inputParameterInfo.type().name()));
 	            		}else if (annotation instanceof OptInputParameterInfo){
 	            			OptInputParameterInfo optInputParameterInfo = (OptInputParameterInfo)annotation;
-	            			function.addInput(new Function.Param(optInputParameterInfo.paramName(),optInputParameterInfo.type().name()));
+	            			function.addOptInput(new Function.Param(optInputParameterInfo.paramName(),optInputParameterInfo.type().name()));
 	            		}
 	            	}
 	            }
