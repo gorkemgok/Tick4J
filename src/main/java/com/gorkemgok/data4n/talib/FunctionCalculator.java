@@ -11,6 +11,7 @@ import com.gorkemgok.data4n.core.type.DoubleData;
 import com.gorkemgok.data4n.talib.Function.Param;
 import com.gorkemgok.data4n.util.DoubleArray;
 import com.tictactec.ta.lib.CoreAnnotated;
+import com.tictactec.ta.lib.MAType;
 import com.tictactec.ta.lib.MInteger;
 import com.tictactec.ta.lib.meta.annotation.InputParameterType;
 import com.tictactec.ta.lib.meta.annotation.OptInputParameterType;
@@ -76,8 +77,31 @@ public class FunctionCalculator {
 		for (double[] in : inputs){
 			allParams[j++] = in;
 		}
+		int optIndex = 0;
 		for (Object optParam : optParams){
-			allParams[j++] = optParam;
+			Param optInput = function.getOptInputs()[optIndex];
+			if (optInput.getType().equals(OptInputParameterType.TA_OptInput_IntegerList.toString()) ||
+					optInput.getType().equals(OptInputParameterType.TA_OptInput_IntegerRange.toString())){
+				int optIntParam = (Integer)optParam;
+				if (optInput.getName().equals("optInMAType")){
+					switch(optIntParam){
+						case 0 : allParams[j++] = MAType.Sma;break;
+						case 1 : allParams[j++] = MAType.Ema;break;
+						case 2 : allParams[j++] = MAType.Wma;break;
+						case 3 : allParams[j++] = MAType.Dema;break;
+						case 4 : allParams[j++] = MAType.Tema;break;
+						case 5 : allParams[j++] = MAType.Trima;break;
+						case 6 : allParams[j++] = MAType.Kama;break;
+						case 7 : allParams[j++] = MAType.Mama;break;
+						case 8 : allParams[j++] = MAType.T3;break;
+					};
+				}else{
+					allParams[j++] = optIntParam;
+				}
+			}else{
+				allParams[j++] = optParam;
+			}
+			optIndex++;
 		}
 		allParams[j++] = outBegIdx;
 		allParams[j++] = outNBElement;
