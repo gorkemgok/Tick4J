@@ -1,6 +1,7 @@
 package com.gorkemgok.data4n.core.set;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.gorkemgok.data4n.core.row.IDataRow;
 import com.gorkemgok.data4n.core.type.Data;
@@ -56,6 +57,10 @@ public class DataSet implements IDataSet, IIterableDataSet{
 
 	public DataSet getSet(int index) {
 		return sets.get(index);
+	}
+	
+	protected List<DataSet> getSets(){
+		return sets;
 	}
 
 	public boolean next() {
