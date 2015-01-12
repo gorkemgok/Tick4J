@@ -9,29 +9,7 @@ public class DataSet implements IDataSet, IIterableDataSet{
 	private ArrayList<IDataRow> rows = new ArrayList<IDataRow>();
 	private ArrayList<DataSet> sets = new ArrayList<DataSet>();
 	protected int currentIndex = -1;
-	private String symbol;
-	private String period;
-
-	public DataSet(String symbol, String period) {
-		this.symbol = symbol;
-		this.period = period;
-	}
 	
-	public String getSymbol() {
-		return symbol;
-	}
-
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	public String getPeriod() {
-		return period;
-	}
-
-	public void setPeriod(String period) {
-		this.period = period;
-	}
 	public void addRow(IDataRow r){
 		rows.add(r);
 	}

@@ -3,10 +3,20 @@ package com.gorkemgok.data4n.core.set;
 import com.gorkemgok.data4n.core.row.TickDataRow;
 
 public class TickDataSet extends DataSet {
-
+	private String symbol;
+	private String period;
 
 	public TickDataSet(String symbol, String period) {
-		super(symbol, period);
+		this.symbol = symbol;
+		this.period = period;
+	}
+	
+	public String getSymbol() {
+		return symbol;
+	}
+
+	public String getPeriod() {
+		return period;
 	}
 
 	public TickDataRow getRow(int index){
