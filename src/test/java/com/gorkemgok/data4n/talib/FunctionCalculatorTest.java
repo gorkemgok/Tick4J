@@ -39,5 +39,21 @@ public class FunctionCalculatorTest {
 			}
 		}
 	}
+	
+	@Test
+	public void test2() {
+		int period = 2;
+		Function[] functions = TALibFunctions.getFunctions();
+		for (Function function : functions){
+			if (function.getName().equals("BBANDS")){
+				FunctionCalculator calculator = new FunctionCalculator(function, set);
+				calculator.calculate(TickDataRow.CLOSE,period,2,2,0);
+
+				assertEquals("Wrong output name",set.getCalculatedDataSet(0).getName(), function.getName()+"_"+function.getOutputs()[0].getName());
+				assertEquals("Wrong output name",set.getCalculatedDataSet(1).getName(), function.getName()+"_"+function.getOutputs()[1].getName());
+				assertEquals("Wrong output name",set.getCalculatedDataSet(2).getName(), function.getName()+"_"+function.getOutputs()[2].getName());
+			}
+		}
+	}
 
 }
