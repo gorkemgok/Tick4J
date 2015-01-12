@@ -20,11 +20,11 @@ public class TestDataSet {
 		TickDataSet set = new TickDataSet("TEST","TEST");
 		set.addRow(new TickDataRow(new DateData(new Date()),new DoubleData(10d),new DoubleData(11d),new DoubleData(12d),new DoubleData(13d),new DoubleData(14d)));
 		
-		CalculatedDataSet calculatedSet = new CalculatedDataSet("TEST1",""); 
+		CalculatedDataSet calculatedSet = new CalculatedDataSet("TEST1",null); 
 		set.addSet(calculatedSet);
 		calculatedSet.addRow(new CalculatedDataRow(new DoubleData(15d)));
 		
-		CalculatedDataSet calculatedSet2 = new CalculatedDataSet("TEST2",""); 
+		CalculatedDataSet calculatedSet2 = new CalculatedDataSet("TEST2",null); 
 		set.addSet(calculatedSet2);
 		calculatedSet2.addRow(new CalculatedDataRow(new DoubleData(16d)));
 
