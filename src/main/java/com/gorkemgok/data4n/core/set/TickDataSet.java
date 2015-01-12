@@ -38,6 +38,14 @@ public class TickDataSet extends DataSet {
 		super.setRow(index, r);
 	}
 	
+	public CalculatedDataSet getCalculatedDataSet(int index){
+		DataSet set = getSet(index);
+		if (set instanceof CalculatedDataSet){
+			return (CalculatedDataSet)set;
+		}else{
+			return null;
+		}
+	}
 	public boolean hasCalculatedDataSet(String name, double[] parameters){
 		List<DataSet> sets = getSets();
 		for (DataSet set : sets){
