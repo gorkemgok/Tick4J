@@ -96,8 +96,13 @@ public class FunctionCalculator {
 		//Core core = new Core();
 		//core.sma(startIdx, endIdx, inReal, period, outBegIdx, outNBElement, outReal);
 		
+		int ni = 0;
 		for (double[] out:outputs){
-			CalculatedDataSet samSet = new CalculatedDataSet("SAM","5dk");
+			String calculatedDataSetName = function.getName();
+			if (function.getOutputs().length>1){
+				calculatedDataSetName += "_"+function.getOutputs()[ni++].getName();
+			}
+			CalculatedDataSet samSet = new CalculatedDataSet(calculatedDataSetName,params);
 			set.addSet(samSet);
 			for (int i = 0; i < outBegIdx.value; i++) {
 				samSet.addRow(new CalculatedDataRow(new DoubleData(0d)));
