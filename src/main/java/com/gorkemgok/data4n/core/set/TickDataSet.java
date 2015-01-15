@@ -1,8 +1,5 @@
 package com.gorkemgok.data4n.core.set;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.gorkemgok.data4n.core.row.TickDataRow;
 
 public class TickDataSet extends DataSet {

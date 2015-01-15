@@ -1,5 +1,6 @@
 package com.gorkemgok.data4n.talib;
 
+import com.gorkemgok.data4n.core.row.IDataRow;
 import com.gorkemgok.data4n.core.set.CalculatedDataSet;
 import com.gorkemgok.data4n.core.set.DataSet;
 
@@ -21,7 +22,10 @@ public class Exp4jFunction extends Function {
 		}
 		setIndex = set.hasDataSet(new CalculatedDataSet(name, params));
 		if(setIndex>-1) {
-			return (Double) set.getSet(setIndex).getRow().getData(0).get();
+			DataSet subSet = set.getSet(setIndex);
+			IDataRow row = subSet.getRow();
+			Object data = row.getData(0).get();
+			return (Double) data;
 		}
 		throw new RuntimeException("Can't calculate ot find function");
 	}

@@ -15,6 +15,7 @@ import com.tictactec.ta.lib.MAType;
 import com.tictactec.ta.lib.MInteger;
 import com.tictactec.ta.lib.meta.annotation.InputParameterType;
 import com.tictactec.ta.lib.meta.annotation.OptInputParameterType;
+import com.tictactec.ta.lib.meta.annotation.OutputParameterType;
 
 public class FunctionCalculator {
 	private Function function;
@@ -27,27 +28,30 @@ public class FunctionCalculator {
 	}
 	
 	public void calculate(double... params){
-		double inputs[][] = new double[function.getInputs().length][];
-		Object[] optParams = new Object[function.getOptInputs().length];
-		double outputs[][] = new double[function.getOutputs().length][];
+		
 		ArrayList<Integer> priceColumns = new ArrayList<Integer>(); 
 		int paramIndex = 0;
 		for (Param p : function.getInputs()){
 			if (p.getType().equals(InputParameterType.TA_Input_Price.name())){
-				String prices = p.getName().substring(0,7);
+				String prices = p.getName().substring(7,p.getName().length());
 				for (char c : prices.toCharArray()){
 					switch (c){
-						case 'O':priceColumns.add(TickDataRow.OPEN);
-						case 'H':priceColumns.add(TickDataRow.HIGH);
-						case 'L':priceColumns.add(TickDataRow.LOW);
-						case 'C':priceColumns.add(TickDataRow.CLOSE);
-						case 'V':priceColumns.add(TickDataRow.VOLUME);
+						case 'O':priceColumns.add(TickDataRow.OPEN);break;
+						case 'H':priceColumns.add(TickDataRow.HIGH);break;
+						case 'L':priceColumns.add(TickDataRow.LOW);break;
+						case 'C':priceColumns.add(TickDataRow.CLOSE);break;
+						case 'V':priceColumns.add(TickDataRow.VOLUME);break;
 					}
 				}
 			}else if(p.getType().equals(InputParameterType.TA_Input_Real.name())){
 				priceColumns.add((int)params[paramIndex++]);
 			}
 		}
+		
+		double inputs[][] = new double[priceColumns.size()][];
+		Object[] optParams = new Object[function.getOptInputs().length];
+		Object[] outputs = new Object[function.getOutputs().length];
+		
 		int optParamIndex = 0;
 		for (Param p : function.getOptInputs()){
 			if (p.getType().equals(OptInputParameterType.TA_OptInput_IntegerRange.name()) || p.getType().equals(OptInputParameterType.TA_OptInput_IntegerList.name())){
@@ -56,6 +60,7 @@ public class FunctionCalculator {
 				optParams[optParamIndex++] = params[paramIndex++];
 			}
 		}
+		
 		Integer[] priceColumnsArray = priceColumns.toArray(new Integer[priceColumns.size()]);
 		DoubleArray doubleArray = new DoubleArray(set,priceColumnsArray);
 		int startIdx = 0;
@@ -65,7 +70,12 @@ public class FunctionCalculator {
 			inputs[i] = doubleArray.get(priceColumnsArray[i]);
 		}
 		for (int i = 0; i < outputs.length; i++) {
-			outputs[i] = new double[endIdx+1];
+			if (function.getOutputs()[i].getType().equals(OutputParameterType.TA_Output_Integer.toString())){
+				outputs[i] = new int[endIdx+1];
+			}else{
+				outputs[i] = new double[endIdx+1];
+			}
+			i++;
 		}
 		MInteger outBegIdx = new MInteger();
 		MInteger outNBElement = new MInteger();
@@ -105,8 +115,9 @@ public class FunctionCalculator {
 		}
 		allParams[j++] = outBegIdx;
 		allParams[j++] = outNBElement;
-		for (double[] out : outputs){
-			allParams[j++] = out;
+		int i = 0;
+		for (Object out : outputs){
+			allParams[j++] = out;		
 		}
 		try {
 			function.getTalibMethod().invoke(new CoreAnnotated(), allParams);
@@ -121,19 +132,26 @@ public class FunctionCalculator {
 		//core.sma(startIdx, endIdx, inReal, period, outBegIdx, outNBElement, outReal);
 		
 		int ni = 0;
-		for (double[] out:outputs){
+		for (Object out:outputs){
 			String calculatedDataSetName = function.getName();
 			if (function.getOutputs().length>1){
-				calculatedDataSetName += "_"+function.getOutputs()[ni++].getName();
+				calculatedDataSetName += "_"+function.getOutputs()[ni].getName();
 			}
 			CalculatedDataSet samSet = new CalculatedDataSet(calculatedDataSetName,params);
 			set.addSet(samSet);
-			for (int i = 0; i < outBegIdx.value; i++) {
+			for (i = 0; i < outBegIdx.value; i++) {
 				samSet.addRow(new CalculatedDataRow(new DoubleData(0d)));
 			}
-			for (double o : out) {
-				samSet.addRow(new CalculatedDataRow(new DoubleData(o)));
+			if (function.getOutputs()[ni].getType().equals(OutputParameterType.TA_Output_Integer.toString())){
+				for (int o : (int[])out) {
+					samSet.addRow(new CalculatedDataRow(new DoubleData((double) o)));
+				}
+			}else{
+				for (double o : (double[])out) {
+					samSet.addRow(new CalculatedDataRow(new DoubleData(o)));
+				}
 			}
+			ni++;
 		}
 	}
 }

@@ -3,6 +3,8 @@ package com.gorkemgok.data4n.talib;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import com.tictactec.ta.lib.meta.annotation.InputParameterType;
+
 public class Function {
 	private String name;
 	private int inputCount;
@@ -52,7 +54,13 @@ public class Function {
 		return outputs.toArray(new Param[outputs.size()]);
 	}
 	
-	
+	public int getInputParameterCount(){
+		int c = 0;
+		for (Param p : inputs){
+			if (!p.getType().equals(InputParameterType.TA_Input_Price.toString())) c++;
+		}
+		return optInputCount+c;
+	}
 	public String getName() {
 		return name;
 	}

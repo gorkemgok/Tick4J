@@ -15,15 +15,22 @@ public class DoubleArray {
 		for (int i = 0; i < columns.length; i++) {
 			arrays.add(new double[rowCount]);
 		}
+		set.begin();
 		int i = 0;
 		while (set.next()){
 			int j = 0;
 			for (int c : columns){
-				arrays.get(j)[i] = ((DoubleData)set.getRow().getData(c)).get();
+				if (c<set.getColumnCount()){
+					arrays.get(j)[i] = ((DoubleData)set.getRow().getData(c)).get();
+				}else{
+					c -= set.getColumnCount();
+					arrays.get(j)[i] = ((DoubleData)set.getSet(c).getRow().getData(0)).get();
+				}
 				j++;
 			}
 			i++;
 		}
+		set.reset();
 	}
 	
 	public double[] get(int column){

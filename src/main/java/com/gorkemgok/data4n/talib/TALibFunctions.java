@@ -11,14 +11,14 @@ import com.tictactec.ta.lib.meta.annotation.OutputParameterInfo;
 
 public class TALibFunctions {
 	private static Function[] functions;
-	{
+	static{
 		functions = TALibFunctions.loadFunctions();
 	}
 	public static Function getFunction(String name){
 		for (Function f : functions){
 			if (f.getName().equals(name)) return f;
 		}
-		return null;
+		throw new RuntimeException("No such function");
 	}
 	public static Function[] getFunctions(){
 		return functions;
