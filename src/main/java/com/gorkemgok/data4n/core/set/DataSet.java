@@ -9,6 +9,7 @@ import com.gorkemgok.data4n.core.type.Data;
 public class DataSet implements IDataSet, IIterableDataSet{
 	private ArrayList<IDataRow> rows = new ArrayList<IDataRow>();
 	private ArrayList<DataSet> sets = new ArrayList<DataSet>();
+	private ArrayList<Integer> indexStack = new ArrayList<Integer>();
 	protected int currentIndex = -1;
 	
 	public void addRow(IDataRow r){
@@ -52,6 +53,7 @@ public class DataSet implements IDataSet, IIterableDataSet{
 	}
 
 	public void addSet(DataSet set) {
+		set.setCurrentIndex(currentIndex);
 		sets.add(set);		
 	}
 
@@ -79,11 +81,16 @@ public class DataSet implements IDataSet, IIterableDataSet{
 	}
 
 	public void reset() {
-		currentIndex = -1;
+		int indexStackLastIndex = indexStack.size()-1;
+		if (indexStackLastIndex < 0){
+			currentIndex = -1;
+		}else{
+			currentIndex = indexStack.get(indexStackLastIndex);
+			indexStack.remove(indexStackLastIndex);
+		}
 		for (DataSet set : sets){
 			set.reset();
 		}
-		
 	}
 	
 	public int hasDataSet(DataSet set){
@@ -93,5 +100,17 @@ public class DataSet implements IDataSet, IIterableDataSet{
 			i++;
 		}
 		return -1;
+	}
+
+	public void setCurrentIndex(int currentIndex) {
+		this.currentIndex = currentIndex;
+	}
+
+	public void begin() {
+		indexStack.add(currentIndex);
+		currentIndex = -1;
+		for (DataSet set : sets){
+			set.begin();
+		}
 	}
 }
