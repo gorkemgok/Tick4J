@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import com.gorkemgok.data4n.core.row.CalculatedDataRow;
 import com.gorkemgok.data4n.core.row.TickDataRow;
 import com.gorkemgok.data4n.core.set.CalculatedDataSet;
-import com.gorkemgok.data4n.core.set.TickDataSet;
+import com.gorkemgok.data4n.core.set.DataSet;
 import com.gorkemgok.data4n.core.type.DoubleData;
 import com.gorkemgok.data4n.talib.Function.Param;
 import com.gorkemgok.data4n.util.DoubleArray;
@@ -18,9 +18,9 @@ import com.tictactec.ta.lib.meta.annotation.OptInputParameterType;
 
 public class FunctionCalculator {
 	private Function function;
-	private TickDataSet set;
+	private DataSet set;
 	
-	public FunctionCalculator(Function function, TickDataSet set) {
+	public FunctionCalculator(Function function, DataSet set) {
 		super();
 		this.function = function;
 		this.set = set;
