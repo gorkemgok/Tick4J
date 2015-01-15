@@ -85,9 +85,13 @@ public class DataSet implements IDataSet, IIterableDataSet{
 		}
 		
 	}
-
-	public void addSet(IDataSet set) {
-		// TODO Auto-generated method stub
-		
+	
+	public int hasDataSet(DataSet set){
+		int i = 0;
+		for (DataSet s : sets){
+			if (set.equals(s)) return i;
+			i++;
+		}
+		return -1;
 	}
 }

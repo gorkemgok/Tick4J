@@ -46,17 +46,5 @@ public class TickDataSet extends DataSet {
 			return null;
 		}
 	}
-	public boolean hasCalculatedDataSet(String name, double[] parameters){
-		List<DataSet> sets = getSets();
-		for (DataSet set : sets){
-			if (set instanceof CalculatedDataSet){
-				CalculatedDataSet calculatedDataSet = (CalculatedDataSet)set;
-				if (calculatedDataSet.getName().equals(name) && Arrays.equals(calculatedDataSet.getParameters(), parameters)){
-					return true;
-				}
-			}
-		}
-		return false;
-	}
 	
 }

@@ -1,5 +1,7 @@
 package com.gorkemgok.data4n.core.set;
 
+import java.util.Arrays;
+
 import com.gorkemgok.data4n.core.row.CalculatedDataRow;
 
 public class CalculatedDataSet extends DataSet {
@@ -34,5 +36,13 @@ public class CalculatedDataSet extends DataSet {
 	
 	public void setRow(int index, CalculatedDataRow r){
 		super.setRow(index, r);
+	}
+	
+	public boolean equals(Object obj){
+		if (obj instanceof CalculatedDataSet){
+			CalculatedDataSet cds = (CalculatedDataSet)obj;
+			if (this.name.equals(cds.name) && Arrays.equals(parameters, cds.parameters)) return true;
+		}
+		return false;
 	}
 }
