@@ -10,13 +10,20 @@ import com.tictactec.ta.lib.meta.annotation.OptInputParameterInfo;
 import com.tictactec.ta.lib.meta.annotation.OutputParameterInfo;
 
 public class TALibFunctions {
-	public static void main(String[] args) throws SecurityException, ClassNotFoundException {
-		Function[] functions = TALibFunctions.getFunctions();
+	private static Function[] functions;
+	{
+		functions = TALibFunctions.loadFunctions();
+	}
+	public static Function getFunction(String name){
 		for (Function f : functions){
-			System.out.println(f);
+			if (f.getName().equals(name)) return f;
 		}
+		return null;
 	}
 	public static Function[] getFunctions(){
+		return functions;
+	}
+	private static Function[] loadFunctions(){
 		Method[] methods = null;
 		try {
 			methods = TALibFunctions.class
