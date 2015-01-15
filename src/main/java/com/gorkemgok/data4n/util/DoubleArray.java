@@ -2,14 +2,14 @@ package com.gorkemgok.data4n.util;
 
 import java.util.ArrayList;
 
-import com.gorkemgok.data4n.core.set.TickDataSet;
+import com.gorkemgok.data4n.core.set.DataSet;
 import com.gorkemgok.data4n.core.type.DoubleData;
 
 public class DoubleArray {
 	private ArrayList<double[]> arrays = new ArrayList<double[]>();
 	private Integer[] columns;
 	
-	public DoubleArray(TickDataSet set,Integer... columns) {
+	public DoubleArray(DataSet set,Integer... columns) {
 		this.columns = columns;
 		int rowCount = set.getRowCount();
 		for (int i = 0; i < columns.length; i++) {
