@@ -75,7 +75,6 @@ public class FunctionCalculator {
 			}else{
 				outputs[i] = new double[endIdx+1];
 			}
-			i++;
 		}
 		MInteger outBegIdx = new MInteger();
 		MInteger outNBElement = new MInteger();
@@ -133,22 +132,26 @@ public class FunctionCalculator {
 		
 		int ni = 0;
 		for (Object out:outputs){
-			String calculatedDataSetName = function.getName();
-			if (function.getOutputs().length>1){
-				calculatedDataSetName += "_"+function.getOutputs()[ni].getName();
+			double[] calculatedDataSetParams = params.clone();
+			if (outputs.length>1){
+				calculatedDataSetParams[calculatedDataSetParams.length-1] = ni;
 			}
-			CalculatedDataSet samSet = new CalculatedDataSet(calculatedDataSetName,params);
-			set.addSet(samSet);
+			String calculatedDataSetName = function.getName();
+			/*if (function.getOutputs().length>1){
+				calculatedDataSetName += "_"+function.getOutputs()[ni].getName();
+			}*/
+			CalculatedDataSet calculatedDataSet = new CalculatedDataSet(calculatedDataSetName,calculatedDataSetParams);
+			set.addSet(calculatedDataSet);
 			for (i = 0; i < outBegIdx.value; i++) {
-				samSet.addRow(new CalculatedDataRow(new DoubleData(0d)));
+				calculatedDataSet.addRow(new CalculatedDataRow(new DoubleData(0d)));
 			}
 			if (function.getOutputs()[ni].getType().equals(OutputParameterType.TA_Output_Integer.toString())){
 				for (int o : (int[])out) {
-					samSet.addRow(new CalculatedDataRow(new DoubleData((double) o)));
+					calculatedDataSet.addRow(new CalculatedDataRow(new DoubleData((double) o)));
 				}
 			}else{
 				for (double o : (double[])out) {
-					samSet.addRow(new CalculatedDataRow(new DoubleData(o)));
+					calculatedDataSet.addRow(new CalculatedDataRow(new DoubleData(o)));
 				}
 			}
 			ni++;

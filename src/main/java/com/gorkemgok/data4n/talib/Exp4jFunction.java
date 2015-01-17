@@ -15,6 +15,7 @@ public class Exp4jFunction extends Function {
 
 	@Override
 	public double apply(double... params) {
+		//TODO:control if parameter count
 		int setIndex = set.hasDataSet(new CalculatedDataSet(name, params));
 		if (setIndex==-1){
 			FunctionCalculator calculator = new FunctionCalculator(TALibFunctions.getFunction(super.name),set);

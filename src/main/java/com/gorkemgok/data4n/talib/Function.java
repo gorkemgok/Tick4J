@@ -56,6 +56,7 @@ public class Function {
 	
 	public int getInputParameterCount(){
 		int c = 0;
+		if (outputs.size()>1) c++;
 		for (Param p : inputs){
 			if (!p.getType().equals(InputParameterType.TA_Input_Price.toString())) c++;
 		}
