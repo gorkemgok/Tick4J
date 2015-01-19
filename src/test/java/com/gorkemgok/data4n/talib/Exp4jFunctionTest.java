@@ -27,7 +27,7 @@ public class Exp4jFunctionTest {
 	}
 	@Test
 	public void test() {
-		Expression expression = new TALibExpressionBuilder(set,"BBANDS(C,20,2,2,0,0)-BBANDS(C,20,2,2,0,1)").build();
+		Expression expression = new TALibExpressionBuilder(set,"BBANDS(c,20,2,2,0,0)-BBANDS(c,20,2,2,0,1)").build();
 		set.begin();
 		while (set.next()){
 			double expressionResult = expression.evaluate();
