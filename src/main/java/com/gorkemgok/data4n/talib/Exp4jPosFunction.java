@@ -16,7 +16,8 @@ public class Exp4jPosFunction extends Function {
 	@Override
 	public double apply(double... params) {
 		//TODO:control if parameter count
-		String orgName = super.name.replaceAll(POS_FUNCTION_PREFIX, "");
+		//String orgName = super.name.replaceAll(POS_FUNCTION_PREFIX, "");
+		String orgName = name.toUpperCase();
 		int setIndex = set.hasDataSet(new CalculatedDataSet(orgName, params));	
 		if (setIndex==-1){
 			FunctionCalculator calculator = new FunctionCalculator(TALibFunctions.getFunction(orgName),set);
