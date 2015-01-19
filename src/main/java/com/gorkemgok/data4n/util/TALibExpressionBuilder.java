@@ -16,20 +16,18 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 		super(expression);
 		this.variables("O","H","L","C","V");
 		for (Function function : TALibFunctions.getFunctions()){
-			if (function.getName().equals("CDLHARAMICROSS") || 1==1){
 			this.function(new Exp4jFunction(set,function.getName(),function.getInputParameterCount()))
-				.function(new Exp4jPosFunction(set,function.getName(),function.getInputParameterCount()));
-			}
+				.function(new Exp4jPosFunction(set,function.getName().toLowerCase(),function.getInputParameterCount()));
 		}
 	}
 	
 	public Expression build(){
 		Expression expression = super.build();
-        expression.setVariable("O", TickDataRow.OPEN)
-				  .setVariable("H", TickDataRow.HIGH)
-				  .setVariable("L", TickDataRow.LOW)
-				  .setVariable("C", TickDataRow.CLOSE)
-				  .setVariable("V", TickDataRow.VOLUME);
+        expression.setVariable("o", TickDataRow.OPEN)
+				  .setVariable("h", TickDataRow.HIGH)
+				  .setVariable("l", TickDataRow.LOW)
+				  .setVariable("c", TickDataRow.CLOSE)
+				  .setVariable("v", TickDataRow.VOLUME);
         return expression;
 	}
 
