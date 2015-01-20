@@ -28,7 +28,6 @@ public class FunctionCalculator {
 	}
 	
 	public void calculate(double... params){
-		
 		ArrayList<Integer> priceColumns = new ArrayList<Integer>(); 
 		int paramIndex = 0;
 		for (Param p : function.getInputs()){
