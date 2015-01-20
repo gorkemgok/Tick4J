@@ -33,7 +33,7 @@
 	                <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
 	                <includes><include>**/*</include></includes>
 	                <merge>true</merge>                                        <!-- don't delete old artifacts -->
-	                <repositoryName>Data4N</repositoryName>      <!-- github repo name -->
+	                <repositoryName>Tick4J</repositoryName>      <!-- github repo name -->
 	                <repositoryOwner>gorkemgok</repositoryOwner>    <!-- github username  -->
 	            </configuration>
 	            <executions>
