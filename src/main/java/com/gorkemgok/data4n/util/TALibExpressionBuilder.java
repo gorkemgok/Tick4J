@@ -74,7 +74,7 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 		Operator and = new Operator("&", 2, true, Operator.PRECEDENCE_ADDITION - 2) {
 			@Override
 			public double apply(double... values) {
-				if (values[0] < values[1]) {
+				if (values[0]==1 && values[1]==1) {
 					return 1d;
 				} else {
 					return 0d;
@@ -85,7 +85,7 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 		Operator or = new Operator("|", 2, true, Operator.PRECEDENCE_ADDITION - 2) {
 			@Override
 			public double apply(double... values) {
-				if (values[0] < values[1]) {
+				if (values[0]==1 || values[1]==1) {
 					return 1d;
 				} else {
 					return 0d;
