@@ -19,6 +19,7 @@ public class Position {
         this.type = type;
         this.openPrice = openPrice;
         this.isClosed = false;
+        this.date = date;
     }
     public void close(double price){
         if (!isClosed){
@@ -26,7 +27,9 @@ public class Position {
             isClosed = true;
         }
     }
-
+    public boolean isClosed(){
+    	return isClosed;
+    }
     public int getType() {
         return type;
     }

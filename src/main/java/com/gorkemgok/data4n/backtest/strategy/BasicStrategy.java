@@ -22,7 +22,7 @@ public class BasicStrategy implements IStrategy{
     public void apply(TickDataSet set,Positions positions) {
         for (IAction action : actions){
             ActionResult actionResult = action.run(set);
-            if (actionResult.hasAction()) positions.addPosition(actionResult.getPosition());
+            if (actionResult.hasNewPosition()) positions.addPosition(actionResult.getPosition());
         }
         for (IStrategy strategy : strategies){
             strategy.apply(set,positions);

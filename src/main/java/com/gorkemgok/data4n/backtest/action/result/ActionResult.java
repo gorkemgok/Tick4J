@@ -12,7 +12,7 @@ public class ActionResult {
         this.position = position;
     }
 
-    public boolean hasAction(){
+    public boolean hasNewPosition(){
         if (position!=null) return true;
         return false;
     }
