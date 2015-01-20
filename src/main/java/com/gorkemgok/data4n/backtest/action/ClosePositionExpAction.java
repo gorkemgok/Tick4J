@@ -19,7 +19,6 @@ public class ClosePositionExpAction extends ExpressionAction implements IAction{
         this.positions = positions;
     }
 
-    @Override
     public ActionResult run(TickDataSet set) {
         super.setVariables(set);
         for (Position position : positions.getPositions()){

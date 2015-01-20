@@ -16,7 +16,6 @@ public class OpenPositionExpAction extends ExpressionAction implements IAction {
         this.positionType = positionType;
     }
 
-    @Override
     public ActionResult run(TickDataSet set) {
         super.setVariables(set);
         if (expression.evaluate()==1){
