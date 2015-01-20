@@ -1,5 +1,7 @@
 package com.gorkemgok.data4n.backtest;
 
+import java.util.Date;
+
 /**
  * Created by gorkemgok on 19/01/15.
  */
@@ -11,8 +13,9 @@ public class Position {
     private double openPrice;
     private boolean isClosed;
     private double closePrice;
+    private Date date;
 
-    public Position(int type, double openPrice) {
+    public Position(int type,Date date, double openPrice) {
         this.type = type;
         this.openPrice = openPrice;
         this.isClosed = false;
@@ -27,7 +30,10 @@ public class Position {
     public int getType() {
         return type;
     }
-
+    
+    public Date getOpenDate(){
+    	return date;
+    }
     public double getOpenPrice() {
         return openPrice;
     }

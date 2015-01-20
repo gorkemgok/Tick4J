@@ -19,7 +19,7 @@ public class OpenPositionExpAction extends ExpressionAction implements IAction {
     public ActionResult run(TickDataSet set) {
         super.setVariables(set);
         if (expression.evaluate()==1){
-            Position position = new Position(positionType,set.getRow().getClose());
+            Position position = new Position(positionType,set.getRow().getDate(),set.getRow().getClose());
             return new ActionResult(position);
         }
         return new NoActionResult();
