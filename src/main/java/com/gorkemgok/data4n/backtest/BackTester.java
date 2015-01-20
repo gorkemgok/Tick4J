@@ -29,7 +29,8 @@ public class BackTester {
         BasicStrategy strategy = new BasicStrategyBuilder()
                 .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"C>SMA(c,20)").build()))
                 .addAction(new SellExpAction(new TALibExpressionBuilder(set,"C<SMA(c,20)").build()))
-                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<P").build(),0,positions))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-1)").build(),0,positions))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+1)").build(),0,positions))
                 .build();
         set.begin();
         while (set.next()){
@@ -37,8 +38,9 @@ public class BackTester {
         }
         set.reset();
         double profit = 0;
+        int i = 0;
         for (Position position : positions.getPositions()){
-            System.out.println(position);
+            System.out.println((i++)+") "+position);
             profit += position.calculateProfit();
         }
 

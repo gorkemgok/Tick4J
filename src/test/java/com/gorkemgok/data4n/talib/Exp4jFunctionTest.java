@@ -37,5 +37,18 @@ public class Exp4jFunctionTest {
 		}
 		set.reset();
 	}
+	
+	@Test
+	public void test2() {
+		Expression expression = new TALibExpressionBuilder(set,"(1<2) & (4>3)").build();
+		set.begin();
+		while (set.next()){
+			expression.setVariable("C", set.getRow().getClose());
+			double expressionResult = expression.evaluate();
+			System.out.println(expressionResult);
+			assertEquals(expressionResult, 1);
+		}
+		set.reset();
+	}
 
 }
