@@ -27,9 +27,10 @@ public class Exp4jFunctionTest {
 	}
 	@Test
 	public void test() {
-		Expression expression = new TALibExpressionBuilder(set,"BBANDS(c,20,2,2,0,0)-BBANDS(c,20,2,2,0,1)").build();
+		Expression expression = new TALibExpressionBuilder(set,"C>SMA(c,20)").build();
 		set.begin();
 		while (set.next()){
+			expression.setVariable("C", set.getRow().getClose());
 			double expressionResult = expression.evaluate();
 			System.out.println(expressionResult);
 			assertNotEquals(expressionResult, 0);
