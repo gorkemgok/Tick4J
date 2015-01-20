@@ -47,7 +47,8 @@ public class Position {
     @Override
     public String toString() {
         return (isClosed?"-":"")+(type==Position.BUY?"Buy":"Sell")+"Position{" +
-                "openPrice=" + openPrice +
+        		"date="+date+
+                ", openPrice=" + openPrice +
                 ", closePrice=" + closePrice +
                 '}';
     }
