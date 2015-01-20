@@ -22,7 +22,7 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 		}
 		Operator gteq = new Operator(">=", 2, true, Operator.PRECEDENCE_ADDITION - 1) {
 			@Override
-			public double apply(double[] values) {
+			public double apply(double... values) {
 				if (values[0] >= values[1]) {
 					return 1d;
 				} else {
@@ -32,7 +32,7 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 		};
 		Operator leeq = new Operator("<=", 2, true, Operator.PRECEDENCE_ADDITION - 1) {
 			@Override
-			public double apply(double[] values) {
+			public double apply(double... values) {
 				if (values[0] <= values[1]) {
 					return 1d;
 				} else {
@@ -42,7 +42,7 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 		};
 		Operator eq = new Operator("=", 2, true, Operator.PRECEDENCE_ADDITION - 1) {
 			@Override
-			public double apply(double[] values) {
+			public double apply(double... values) {
 				if (values[0] == values[1]) {
 					return 1d;
 				} else {
@@ -52,7 +52,7 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 		};
 		Operator gt = new Operator(">", 2, true, Operator.PRECEDENCE_ADDITION - 1) {
 			@Override
-			public double apply(double[] values) {
+			public double apply(double... values) {
 				if (values[0] > values[1]) {
 					return 1d;
 				} else {
@@ -62,7 +62,7 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 		};
 		Operator le = new Operator("<", 2, true, Operator.PRECEDENCE_ADDITION - 1) {
 			@Override
-			public double apply(double[] values) {
+			public double apply(double... values) {
 				if (values[0] < values[1]) {
 					return 1d;
 				} else {
@@ -70,7 +70,29 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 				}
 			}
 		};
-		this.operator(gteq).operator(leeq).operator(gt).operator(le).operator(eq);
+		
+		Operator and = new Operator("&", 2, true, Operator.PRECEDENCE_ADDITION - 2) {
+			@Override
+			public double apply(double... values) {
+				if (values[0] < values[1]) {
+					return 1d;
+				} else {
+					return 0d;
+				}
+			}
+		};
+		
+		Operator or = new Operator("|", 2, true, Operator.PRECEDENCE_ADDITION - 2) {
+			@Override
+			public double apply(double... values) {
+				if (values[0] < values[1]) {
+					return 1d;
+				} else {
+					return 0d;
+				}
+			}
+		};
+		this.operator(gteq).operator(leeq).operator(gt).operator(le).operator(eq).operator(and).operator(or);
 	}
 	
 	public Expression build(){
