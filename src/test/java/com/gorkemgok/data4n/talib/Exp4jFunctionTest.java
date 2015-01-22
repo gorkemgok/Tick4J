@@ -40,15 +40,45 @@ public class Exp4jFunctionTest {
 	
 	@Test
 	public void test2() {
-		Expression expression = new TALibExpressionBuilder(set,"(1<2) & (4>3)").build();
-		set.begin();
-		while (set.next()){
-			expression.setVariable("C", set.getRow().getClose());
-			double expressionResult = expression.evaluate();
-			System.out.println(expressionResult);
-			assertEquals(expressionResult, 1);
-		}
-		set.reset();
+		double expressionResult = new TALibExpressionBuilder(set,"1 & 1").build().evaluate();
+		assertEquals("Worng and logic",expressionResult, 1d,0);
+		expressionResult = new TALibExpressionBuilder(set,"1 & 0").build().evaluate();
+		assertEquals("Worng and logic",expressionResult, 0d,0);
+		expressionResult = new TALibExpressionBuilder(set,"0 & 0").build().evaluate();
+		assertEquals("Worng and logic",expressionResult, 0d,0);
+		expressionResult = new TALibExpressionBuilder(set,"1 | 1").build().evaluate();
+		assertEquals("Worng or logic",expressionResult, 1d,0);
+		expressionResult = new TALibExpressionBuilder(set,"1 | 0").build().evaluate();
+		assertEquals("Worng or logic",expressionResult, 1d,0);
+		expressionResult = new TALibExpressionBuilder(set,"0 | 0").build().evaluate();
+		assertEquals("Worng or logic",expressionResult, 0d,0);
+	}
+	
+	@Test
+	public void test3() {
+		double expressionResult = new TALibExpressionBuilder(set,"1 < 1").build().evaluate();
+		assertEquals("Worng < operator",expressionResult, 0d,0);
+		expressionResult = new TALibExpressionBuilder(set,"0 < 1").build().evaluate();
+		assertEquals("Worng < operator",expressionResult, 1d,0);
+		
+		expressionResult = new TALibExpressionBuilder(set,"1 > 1").build().evaluate();
+		assertEquals("Worng > operator",expressionResult, 0d,0);
+		expressionResult = new TALibExpressionBuilder(set,"1 > 0").build().evaluate();
+		assertEquals("Worng > operator",expressionResult, 1d,0);
+
+	}
+	
+	@Test
+	public void test4() {
+		double expressionResult = new TALibExpressionBuilder(set,"(1 > 0) & (1 < 2)").build().evaluate();
+		assertEquals("Worng <,>, and combination",expressionResult, 1d,0);
+		
+		expressionResult = new TALibExpressionBuilder(set,"(1 > 4) & (1 < 2)").build().evaluate();
+		assertEquals("Worng <,>, and combination",expressionResult, 0d,0);
+		
+		expressionResult = new TALibExpressionBuilder(set,"(1 > 4) | (1 < 2)").build().evaluate();
+		assertEquals("Worng <,>, and combination",expressionResult, 1d,0);
+
 	}
 
 }
