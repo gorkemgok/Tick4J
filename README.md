@@ -1,4 +1,4 @@
-Data4N
+Tick4J
 ======
 
-Time Series Data manipulation for Stock Market Prediction Applications with Neural Network
+Time Series Data manipulation for Stock Market Applications
