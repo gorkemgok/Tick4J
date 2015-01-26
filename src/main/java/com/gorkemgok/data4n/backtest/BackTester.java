@@ -22,15 +22,14 @@ public class BackTester {
         CSVLoader loader = new CSVLoader("resources/vob30_5dk_100.csv","DATE>MM/dd/yy kk:mm:SSS,HOUR,OPEN,HIGH,LOW,CLOSE,VOLUME");
         loader.addListener(new CSVTickListener(set));
         loader.load();
-        set.reset();
 
         Positions positions = new Positions();
 
         BasicStrategy strategy = new BasicStrategyBuilder()
-                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"C>SMA(c,20)").build()))
-                .addAction(new SellExpAction(new TALibExpressionBuilder(set,"C<SMA(c,20)").build()))
-                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-1)").build(),0,positions))
-                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+1)").build(),0,positions))
+                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"C<SMA(c,20)").build()))
+                .addAction(new SellExpAction(new TALibExpressionBuilder(set,"C>SMA(c,20)").build()))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-10)").build(),0,positions))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+10)").build(),0,positions))
                 .build();
         set.begin();
         while (set.next()){
