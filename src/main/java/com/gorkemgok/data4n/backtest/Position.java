@@ -42,7 +42,7 @@ public class Position {
     }
 
     public double calculateProfit(){
-        double profit = openPrice - closePrice;
+        double profit = closePrice - openPrice;
         if (type==Position.SELL) profit *= -1;
         return isClosed?profit:0;
     }
