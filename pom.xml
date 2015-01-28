@@ -12,6 +12,7 @@
 		<javolution.version>6.0.0</javolution.version>
 		<junit.version>4.12</junit.version>
 		<exp4j.version>0.4.4</exp4j.version>
+		<jgap.version>3.4.4</jgap.version>
 	</properties>
     <build>
 	  	<plugins>
@@ -76,6 +77,13 @@
 		    <artifactId>exp4j</artifactId>
 		    <version>${exp4j.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.jgap</groupId>
+			<artifactId>jgap</artifactId>
+			<version>${jgap.version}</version>
+		</dependency>
+		
 
     </dependencies>
 
