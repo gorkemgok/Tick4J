@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class BasicStrategy implements IStrategy{
     private ArrayList<BasicStrategy> strategies = new ArrayList<BasicStrategy>();
     private ArrayList<IAction> actions = new ArrayList<IAction>();
+    private int maxOpenPositionCount = 0;
 
     protected BasicStrategy(ArrayList<BasicStrategy> strategies, ArrayList<IAction> actions) {
         this.strategies = strategies;
@@ -22,11 +23,17 @@ public class BasicStrategy implements IStrategy{
     public void apply(TickDataSet set,Positions positions) {
         for (IAction action : actions){
             ActionResult actionResult = action.run(set);
-            if (actionResult.hasNewPosition()) positions.addPosition(actionResult.getPosition());
+            if (actionResult.hasNewPosition() && maxOpenPositionCount > 0 && maxOpenPositionCount > positions.getOpenPositionCount()) positions.addPosition(actionResult.getPosition());
         }
         for (IStrategy strategy : strategies){
             strategy.apply(set,positions);
         }
     }
+
+	public void setMaxOpenPositionCount(int maxOpenPositionCount) {
+		this.maxOpenPositionCount = maxOpenPositionCount;
+	}
+    
+    
 
 }

@@ -14,6 +14,7 @@ public class Position {
     private boolean isClosed;
     private double closePrice;
     private Date date;
+    private Positions parent = null;
 
     public Position(int type,Date date, double openPrice) {
         this.type = type;
@@ -25,6 +26,9 @@ public class Position {
         if (!isClosed){
             closePrice = price;
             isClosed = true;
+            if (parent!=null){
+            	parent.closeOnePosition();
+            }
         }
     }
     public boolean isClosed(){
@@ -56,5 +60,9 @@ public class Position {
                 ", closePrice=" + closePrice +
                 ", profit=" + profit +
                 '}';
+    }
+    
+    protected void setParent(Positions parent){
+    	this.parent = parent;
     }
 }
