@@ -17,12 +17,14 @@ import org.jgap.gp.impl.*;
 import org.jgap.gp.terminal.Variable;
 
 import com.gorkemgok.data4n.backtest.Position;
+import com.gorkemgok.data4n.backtest.PositionCalculator;
 import com.gorkemgok.data4n.backtest.Positions;
 import com.gorkemgok.data4n.backtest.action.BuyExpAction;
 import com.gorkemgok.data4n.backtest.action.ClosePositionExpAction;
 import com.gorkemgok.data4n.backtest.strategy.BasicStrategy;
 import com.gorkemgok.data4n.backtest.strategy.BasicStrategyBuilder;
 import com.gorkemgok.data4n.core.set.TickDataSet;
+import com.gorkemgok.data4n.jgap.dummy.IntegerIntervalRSIType;
 import com.gorkemgok.data4n.jgap.dummy.PricePos;
 import com.gorkemgok.data4n.jgap.dummy.TimePeriod;
 import com.gorkemgok.data4n.jgap.functions.CustomFunction;
@@ -130,6 +132,8 @@ public class Tick4JProblem extends GPProblem {
 						//new Or(conf),
 						new CustomFunction(conf, "<",CommandGene.BooleanClass,CommandGene.FloatClass), 
 						new CustomFunction(conf, ">",CommandGene.BooleanClass,CommandGene.FloatClass),
+						new CustomFunction(conf, "<",CommandGene.BooleanClass,IntegerIntervalRSIType.class), 
+						new CustomFunction(conf, ">",CommandGene.BooleanClass,IntegerIntervalRSIType.class),
 						new CustomFunction(conf, "&",CommandGene.BooleanClass,CommandGene.BooleanClass),
 						new CustomFunction(conf, "|",CommandGene.BooleanClass,CommandGene.BooleanClass),
 						//new CustomFunction(conf, "",CommandGene.FloatClass,PricePos.class,1), 
@@ -138,13 +142,13 @@ public class Tick4JProblem extends GPProblem {
 						new CustomFunction(conf, "TRIX",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "TRIMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "WMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
-						new CustomFunction(conf, "RSI",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "RSI",IntegerIntervalRSIType.class,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "TEMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
-						new CustomFunction(conf, "SUM",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
-						new CustomFunction(conf, "MFI",CommandGene.FloatClass,1,TimePeriod.class),
+						new CustomFunction(conf, "MFI",IntegerIntervalRSIType.class,1,TimePeriod.class),
 						new CustomFunction(conf, "MIDPRICE",CommandGene.FloatClass,1,TimePeriod.class),
 						//new Terminal(conf, CommandGene.FloatClass, 800d, 1000d,true),
 						new Terminal(conf, TimePeriod.class, 2, 30,true),
+						new Terminal(conf, IntegerIntervalRSIType.class, 0, 100, true)
 				},
 				// ADF-relevant:
 				// and now the definition of ADF(1)
@@ -193,7 +197,8 @@ public class Tick4JProblem extends GPProblem {
 	public static void main(String[] args) throws Exception {
 		TickDataSet set = new TickDataSet("VOBO30","5DK");
         CSVLoader loader;
-			loader = new CSVLoader("resources/vob30_5dk.csv","DATE>MM/dd/yy kk:mm:SSS,HOUR,OPEN,HIGH,LOW,CLOSE,VOLUME");
+			//loader = new CSVLoader("resources/vob30_5dk.csv","DATE>MM/dd/yy kk:mm:SSS,HOUR,OPEN,HIGH,LOW,CLOSE,VOLUME");
+			loader = new CSVLoader("resources/vob30_5dk_15-19Agust.csv","DATE>MM/dd/yy kk:mm:SSS,HOUR,OPEN,HIGH,LOW,CLOSE,VOLUME");
 			loader.addListener(new CSVTickListener(set));
 	        loader.load();
 	        
@@ -266,19 +271,18 @@ public class Tick4JProblem extends GPProblem {
 		                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-5)").build(),0,positions))
 		                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+5)").build(),0,positions))
 		                .build();
+		        strategy.setMaxOpenPositionCount(4);
 		        double lastClose = 0;
 		        set.begin();
 		        while (set.next()){
 		            strategy.apply(set,positions);
 		            lastClose = set.getRow().getClose();
 		        }
-
-		        double profit = 0;
-		        for (Position position : positions.getPositions()){
-		        	if (!position.isClosed()) position.close(lastClose);
-		            profit += position.calculateProfit(); 
-		        }
 		        set.reset();
+		        
+		        PositionCalculator positionCalculator = new PositionCalculator(positions, lastClose);
+		        positionCalculator.calculate();
+		        double profit = positionCalculator.getProfit();
 		        //System.out.println("PROFIT:"+profit);
 		        //return fitness++;
 		        return profit>0?profit:0;

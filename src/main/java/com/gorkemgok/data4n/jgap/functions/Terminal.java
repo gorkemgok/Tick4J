@@ -15,7 +15,7 @@ import org.jgap.gp.*;
 import org.jgap.gp.impl.*;
 import org.jgap.util.*;
 
-import com.gorkemgok.data4n.jgap.dummy.TimePeriod;
+import com.gorkemgok.data4n.jgap.dummy.IntegerInterval;
 
 /**
  * A terminal is a static number that can be mutated.
@@ -163,7 +163,7 @@ public class Terminal
     if (retType == CommandGene.FloatClass || retType == float.class) {
       setRandomValue(m_value_float);
     }
-    else if (retType == TimePeriod.class || retType == CommandGene.IntegerClass || retType == int.class) {
+    else if (retType.getSuperclass() == IntegerInterval.class || retType == CommandGene.IntegerClass || retType == int.class) {
       setRandomValue(m_value_int);
     }
     else if (retType == CommandGene.LongClass || retType == long.class) {
@@ -256,7 +256,7 @@ public class Terminal
           setValue(newValueD);
         }
       }
-      else if (retType == TimePeriod.class || retType == CommandGene.IntegerClass) {
+      else if (retType.getSuperclass() == IntegerInterval.class || retType == CommandGene.IntegerClass) {
         int newValueI;
         double range = (m_upperBounds - m_lowerBounds) * a_percentage;
         if (m_value_int >= (m_upperBounds - m_lowerBounds) / 2) {
@@ -309,7 +309,7 @@ public class Terminal
     if (retType == CommandGene.FloatClass) {
       return "" + m_value_float;
     }
-    else if (retType == TimePeriod.class || retType == CommandGene.IntegerClass) {
+    else if (retType.getSuperclass() == IntegerInterval.class || retType == CommandGene.IntegerClass) {
       return "" + m_value_int;
     }
     else if (retType == CommandGene.LongClass) {
@@ -359,7 +359,7 @@ public class Terminal
     else if (retType == CommandGene.DoubleClass) {
       value.append(m_value_double).append("d");
     }
-    else if (retType == TimePeriod.class || retType == CommandGene.IntegerClass) {
+    else if (retType.getSuperclass() == IntegerInterval.class || retType == CommandGene.IntegerClass) {
       value.append(m_value_int);
     }
     else if (retType == CommandGene.LongClass) {

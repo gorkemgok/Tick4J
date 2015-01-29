@@ -15,7 +15,7 @@ public class PositionCalculator {
         for (Position position : positions.getPositions()){
         	if (!position.isClosed()) position.close(lastClose);
             profit += position.calculateProfit();
-            System.out.println(position);
+            //System.out.println(position);
         }
 	}
 

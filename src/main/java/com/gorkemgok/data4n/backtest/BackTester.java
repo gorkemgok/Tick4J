@@ -19,29 +19,31 @@ import java.text.ParseException;
 public class BackTester {
     public static void main(String[] args) throws IOException, ParseException {
         TickDataSet set = new TickDataSet("VOBO30","5DK");
-        CSVLoader loader = new CSVLoader("resources/vob30_5dk_100.csv","DATE>MM/dd/yy kk:mm:SSS,HOUR,OPEN,HIGH,LOW,CLOSE,VOLUME");
+        CSVLoader loader = new CSVLoader("resources/vob30_5dk_15-19Agust.csv","DATE>MM/dd/yy kk:mm:SSS,HOUR,OPEN,HIGH,LOW,CLOSE,VOLUME");
         loader.addListener(new CSVTickListener(set));
         loader.load();
 
         Positions positions = new Positions();
 
         BasicStrategy strategy = new BasicStrategyBuilder()
-                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"C<SMA(c,20)").build()))
-                .addAction(new SellExpAction(new TALibExpressionBuilder(set,"C>SMA(c,20)").build()))
-                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-10)").build(),0,positions))
-                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+10)").build(),0,positions))
+                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"1=1").build()))
+                //.addAction(new SellExpAction(new TALibExpressionBuilder(set,"C>SMA(c,20)").build()))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-5)").build(),0,positions))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+5)").build(),0,positions))
                 .build();
+        
+        strategy.setMaxOpenPositionCount(4);
+        double lastClose = 0;
         set.begin();
         while (set.next()){
             strategy.apply(set,positions);
+            lastClose = set.getRow().getClose();
         }
         set.reset();
-        double profit = 0;
-        int i = 0;
-        for (Position position : positions.getPositions()){
-            System.out.println((i++)+") "+position);
-            profit += position.calculateProfit();
-        }
+        
+        PositionCalculator positionCalculator = new PositionCalculator(positions, lastClose);
+        positionCalculator.calculate();
+        double profit = positionCalculator.getProfit();
 
         System.out.println("Total:"+profit);
     }
