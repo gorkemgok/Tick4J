@@ -25,6 +25,7 @@ import com.gorkemgok.data4n.backtest.strategy.BasicStrategy;
 import com.gorkemgok.data4n.backtest.strategy.BasicStrategyBuilder;
 import com.gorkemgok.data4n.core.set.TickDataSet;
 import com.gorkemgok.data4n.jgap.dummy.IntegerIntervalRSIType;
+import com.gorkemgok.data4n.jgap.dummy.IntegerIntervalTRIXType;
 import com.gorkemgok.data4n.jgap.dummy.PricePos;
 import com.gorkemgok.data4n.jgap.dummy.TimePeriod;
 import com.gorkemgok.data4n.jgap.functions.CustomFunction;
@@ -132,15 +133,20 @@ public class Tick4JProblem extends GPProblem {
 						//new Or(conf),
 						new CustomFunction(conf, "<",CommandGene.BooleanClass,CommandGene.FloatClass), 
 						new CustomFunction(conf, ">",CommandGene.BooleanClass,CommandGene.FloatClass),
+						
 						new CustomFunction(conf, "<",CommandGene.BooleanClass,IntegerIntervalRSIType.class), 
 						new CustomFunction(conf, ">",CommandGene.BooleanClass,IntegerIntervalRSIType.class),
+						
+						new CustomFunction(conf, "<",CommandGene.BooleanClass,IntegerIntervalTRIXType.class), 
+						new CustomFunction(conf, ">",CommandGene.BooleanClass,IntegerIntervalTRIXType.class),
+						
 						new CustomFunction(conf, "&",CommandGene.BooleanClass,CommandGene.BooleanClass),
 						new CustomFunction(conf, "|",CommandGene.BooleanClass,CommandGene.BooleanClass),
 						//new CustomFunction(conf, "",CommandGene.FloatClass,PricePos.class,1), 
 						new CustomFunction(conf, "SMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "TSF",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
-						new CustomFunction(conf, "TRIX",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
-						new CustomFunction(conf, "TRIMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "TRIX",IntegerIntervalTRIXType.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "TRIMA",IntegerIntervalTRIXType.class,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "WMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "RSI",IntegerIntervalRSIType.class,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "TEMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
@@ -148,7 +154,8 @@ public class Tick4JProblem extends GPProblem {
 						new CustomFunction(conf, "MIDPRICE",CommandGene.FloatClass,1,TimePeriod.class),
 						//new Terminal(conf, CommandGene.FloatClass, 800d, 1000d,true),
 						new Terminal(conf, TimePeriod.class, 2, 30,true),
-						new Terminal(conf, IntegerIntervalRSIType.class, 0, 100, true)
+						new Terminal(conf, IntegerIntervalRSIType.class, 0, 100, true),
+						new Terminal(conf, IntegerIntervalTRIXType.class, -100, 100, true)
 				},
 				// ADF-relevant:
 				// and now the definition of ADF(1)
@@ -212,7 +219,7 @@ public class Tick4JProblem extends GPProblem {
 		// ----------------------------------------------------------------------
 		config.setGPFitnessEvaluator(new DefaultGPFitnessEvaluator());
 		config.setMaxInitDepth(10);
-		config.setPopulationSize(10);
+		config.setPopulationSize(100);
 		config.setMaxCrossoverDepth(20);
 		config.setFitnessFunction(new Tick4JProblem.FormulaFitnessFunction(set));
 		config.setStrictProgramCreation(false);
@@ -227,7 +234,7 @@ public class Tick4JProblem extends GPProblem {
 		// if a satisfying result is found (fitness value almost 0), JGAP stops
 		// earlier automatically.
 		// --------------------------------------------------------------------
-		gp.evolve(800);
+		gp.evolve(8000);
 		// Print the best solution so far to the console.
 		// ----------------------------------------------
 		gp.outputSolution(gp.getAllTimeBest());
