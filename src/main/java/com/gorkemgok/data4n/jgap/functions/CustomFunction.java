@@ -18,6 +18,8 @@ import org.jgap.gp.*;
 import org.jgap.gp.impl.*;
 import org.jgap.util.*;
 
+import com.gorkemgok.data4n.util.ArrayMutator;
+
 /**
  * Specifies a color, represented by R, G, B and Alpha.
  *
@@ -38,7 +40,10 @@ public class CustomFunction extends CommandGene implements IMutateable, ICloneab
 	private final int childCount;
 	private boolean isOperator = true;
 	
-	private final static String[] MA_TYPE_FUNCTIONS = {"SMA","WMA"};
+	private final static String[] MA_TYPE_FUNCTIONS = {"SMA","WMA","DEMA"};
+	private final static String[] RSI_TYPE_FUNCTIONS = {"RSI"};
+	private final static String[] COMP_OPERATORS = {"<",">","=",">=","<="};
+	private final static String[] LOGIC_OPERATORS = {"&","|"};
 
 
 	public CustomFunction(boolean isOperator,GPConfiguration a_conf, String functionName ,Class returnType, int childCount, Class... childTypes) throws InvalidConfigurationException {
@@ -104,12 +109,18 @@ public class CustomFunction extends CommandGene implements IMutateable, ICloneab
 	}
 	public CommandGene applyMutation(int a_index, double a_percentage) throws InvalidConfigurationException {
 		String mutantName = functionName;
+		ArrayMutator<String> mutator = new ArrayMutator<String>();
 		if (ArrayUtils.contains(MA_TYPE_FUNCTIONS, functionName)){
-			if (a_percentage>0.5){
-				mutantName = MA_TYPE_FUNCTIONS[0];
-			}
+			mutantName = mutator.mutate(MA_TYPE_FUNCTIONS,a_percentage);
+		}else if (ArrayUtils.contains(RSI_TYPE_FUNCTIONS, functionName)){
+			mutantName = mutator.mutate(RSI_TYPE_FUNCTIONS,a_percentage);
+		}else if (ArrayUtils.contains(COMP_OPERATORS, functionName)){
+			mutantName = mutator.mutate(COMP_OPERATORS,a_percentage);
+		}else if (ArrayUtils.contains(LOGIC_OPERATORS, functionName)){
+			mutantName = mutator.mutate(LOGIC_OPERATORS,a_percentage);
 		}
 		CustomFunction mutant = new CustomFunction(isOperator,getGPConfiguration(),mutantName,this.getReturnType(),childCount,childTypes);
 		return mutant;
 	}
+
 }
