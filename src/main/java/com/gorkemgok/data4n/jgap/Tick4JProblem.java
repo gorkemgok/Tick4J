@@ -16,7 +16,6 @@ import org.jgap.gp.*;
 import org.jgap.gp.impl.*;
 import org.jgap.gp.terminal.Variable;
 
-import com.gorkemgok.data4n.backtest.Position;
 import com.gorkemgok.data4n.backtest.PositionCalculator;
 import com.gorkemgok.data4n.backtest.Positions;
 import com.gorkemgok.data4n.backtest.action.BuyExpAction;
@@ -255,7 +254,6 @@ public class Tick4JProblem extends GPProblem {
 	public static class FormulaFitnessFunction extends GPFitnessFunction {
 
 		private static final long serialVersionUID = 3049346574741996709L;
-		private static int fitness = 0;
 		private TickDataSet set;
 		public FormulaFitnessFunction(TickDataSet set) {
 			super();

@@ -2,7 +2,7 @@ package com.gorkemgok.data4n.backtest;
 
 import com.gorkemgok.data4n.backtest.action.BuyExpAction;
 import com.gorkemgok.data4n.backtest.action.ClosePositionExpAction;
-import com.gorkemgok.data4n.backtest.action.SellExpAction;
+
 import com.gorkemgok.data4n.backtest.strategy.BasicStrategy;
 import com.gorkemgok.data4n.backtest.strategy.BasicStrategyBuilder;
 import com.gorkemgok.data4n.core.set.TickDataSet;
@@ -26,7 +26,7 @@ public class BackTester {
         Positions positions = new Positions();
 
         BasicStrategy strategy = new BasicStrategyBuilder()
-                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"1=1").build()))
+                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"((TRIX(h,29))<(TRIX(o,29)))&(((WMA(l,12))>H)&(33<(RSI(c,25))))").build()))
                 //.addAction(new SellExpAction(new TALibExpressionBuilder(set,"C>SMA(c,20)").build()))
                 .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-5)").build(),0,positions))
                 .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+5)").build(),0,positions))

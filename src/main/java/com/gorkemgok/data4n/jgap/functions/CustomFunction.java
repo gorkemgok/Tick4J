@@ -12,12 +12,11 @@ package com.gorkemgok.data4n.jgap.functions;
 
 import java.awt.*;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.jgap.*;
 import org.jgap.gp.*;
 import org.jgap.gp.impl.*;
 import org.jgap.util.*;
-
-import com.gorkemgok.data4n.model.function.IFunction;
 
 /**
  * Specifies a color, represented by R, G, B and Alpha.
@@ -25,13 +24,21 @@ import com.gorkemgok.data4n.model.function.IFunction;
  * @author Yann N. Dauphin
  * @since 3.4
  */
-public class CustomFunction extends CommandGene implements ICloneable{
+@SuppressWarnings("rawtypes")
+public class CustomFunction extends CommandGene implements IMutateable, ICloneable{
+
+	private static final long serialVersionUID = -7585162580578642995L;
+
 	/** String containing the CVS revision. Read out via reflection!*/
+	@SuppressWarnings("unused")
 	private final static String CVS_REVISION = "$Revision: 1.4 $";
+
 	private final Class[] childTypes;
 	private final String functionName;
 	private final int childCount;
 	private boolean isOperator = true;
+	
+	private final static String[] MA_TYPE_FUNCTIONS = {"SMA","WMA"};
 
 
 	public CustomFunction(boolean isOperator,GPConfiguration a_conf, String functionName ,Class returnType, int childCount, Class... childTypes) throws InvalidConfigurationException {
@@ -94,5 +101,15 @@ public class CustomFunction extends CommandGene implements ICloneable{
 			throw new CloneException(t);
 		}
 
+	}
+	public CommandGene applyMutation(int a_index, double a_percentage) throws InvalidConfigurationException {
+		String mutantName = functionName;
+		if (ArrayUtils.contains(MA_TYPE_FUNCTIONS, functionName)){
+			if (a_percentage>0.5){
+				mutantName = MA_TYPE_FUNCTIONS[0];
+			}
+		}
+		CustomFunction mutant = new CustomFunction(isOperator,getGPConfiguration(),mutantName,this.getReturnType(),childCount,childTypes);
+		return mutant;
 	}
 }
