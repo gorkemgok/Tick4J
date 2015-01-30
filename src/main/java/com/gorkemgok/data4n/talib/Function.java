@@ -100,7 +100,10 @@ public class Function {
 		public void setType(String type) {
 			this.type = type;
 		}
-		
+		public boolean isSame(Param param){
+			if (this.name.equals(param.getName()) && this.type.equals(param.getType())) return true;
+			return false;
+		}
 		
 	}
 }
