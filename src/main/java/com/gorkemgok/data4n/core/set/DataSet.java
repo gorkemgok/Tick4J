@@ -102,6 +102,10 @@ public class DataSet implements IDataSet, IIterableDataSet{
 		return -1;
 	}
 
+	public void clearSubsets(){
+		sets.clear();
+	}
+
 	public void setCurrentIndex(int currentIndex) {
 		this.currentIndex = currentIndex;
 	}
