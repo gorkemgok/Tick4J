@@ -11,6 +11,7 @@ package com.gorkemgok.data4n.jgap;
  */
 import java.util.*;
 
+import com.gorkemgok.data4n.backtest.action.SellExpAction;
 import org.jgap.*;
 import org.jgap.gp.*;
 import org.jgap.gp.impl.*;
@@ -24,7 +25,7 @@ import com.gorkemgok.data4n.backtest.strategy.BasicStrategy;
 import com.gorkemgok.data4n.backtest.strategy.BasicStrategyBuilder;
 import com.gorkemgok.data4n.core.set.TickDataSet;
 import com.gorkemgok.data4n.jgap.dummy.IntegerIntervalRSIType;
-import com.gorkemgok.data4n.jgap.dummy.IntegerIntervalTRIXType;
+import com.gorkemgok.data4n.jgap.dummy.IntegerIntervalZeroBased;
 import com.gorkemgok.data4n.jgap.dummy.PricePos;
 import com.gorkemgok.data4n.jgap.dummy.TimePeriod;
 import com.gorkemgok.data4n.jgap.functions.CustomFunction;
@@ -136,25 +137,44 @@ public class Tick4JProblem extends GPProblem {
 						new CustomFunction(conf, "<",CommandGene.BooleanClass,IntegerIntervalRSIType.class), 
 						new CustomFunction(conf, ">",CommandGene.BooleanClass,IntegerIntervalRSIType.class),
 						
-						new CustomFunction(conf, "<",CommandGene.BooleanClass,IntegerIntervalTRIXType.class), 
-						new CustomFunction(conf, ">",CommandGene.BooleanClass,IntegerIntervalTRIXType.class),
+						new CustomFunction(conf, "<",CommandGene.BooleanClass,IntegerIntervalZeroBased.class),
+						new CustomFunction(conf, ">",CommandGene.BooleanClass,IntegerIntervalZeroBased.class),
 						
 						new CustomFunction(conf, "&",CommandGene.BooleanClass,CommandGene.BooleanClass),
 						new CustomFunction(conf, "|",CommandGene.BooleanClass,CommandGene.BooleanClass),
-						//new CustomFunction(conf, "",CommandGene.FloatClass,PricePos.class,1), 
+
+						new CustomFunction(conf, "AVGPRICE",CommandGene.FloatClass,0),
+
+						new CustomFunction(conf, "MIDPRICE",CommandGene.FloatClass,1,TimePeriod.class),
+
 						new CustomFunction(conf, "SMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "TSF",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
-						new CustomFunction(conf, "TRIX",IntegerIntervalTRIXType.class,2,PricePos.class,TimePeriod.class),
-						new CustomFunction(conf, "TRIMA",IntegerIntervalTRIXType.class,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "WMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
-						new CustomFunction(conf, "RSI",IntegerIntervalRSIType.class,2,PricePos.class,TimePeriod.class),
 						new CustomFunction(conf, "TEMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "DEMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "MIN",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "MAX",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "KAMA",CommandGene.FloatClass,2,PricePos.class,TimePeriod.class),
+
+						new CustomFunction(conf, "sma",PricePos.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "tsf",PricePos.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "wma",PricePos.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "tema",PricePos.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "dema",PricePos.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "min",PricePos.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "max",PricePos.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "kama",PricePos.class,2,PricePos.class,TimePeriod.class),
+
+						new CustomFunction(conf, "TRIX",IntegerIntervalZeroBased.class,2,PricePos.class,TimePeriod.class),
+						new CustomFunction(conf, "TRIMA",IntegerIntervalZeroBased.class,2,PricePos.class,TimePeriod.class),
+
+						new CustomFunction(conf, "RSI",IntegerIntervalRSIType.class,2,PricePos.class,TimePeriod.class),
+
 						new CustomFunction(conf, "MFI",IntegerIntervalRSIType.class,1,TimePeriod.class),
-						new CustomFunction(conf, "MIDPRICE",CommandGene.FloatClass,1,TimePeriod.class),
-						//new Terminal(conf, CommandGene.FloatClass, 800d, 1000d,true),
+
 						new Terminal(conf, TimePeriod.class, 2, 30,true),
 						new Terminal(conf, IntegerIntervalRSIType.class, 0, 100, true),
-						new Terminal(conf, IntegerIntervalTRIXType.class, -100, 100, true)
+						new Terminal(conf, IntegerIntervalZeroBased.class, -2, 2, true)
 				},
 				// ADF-relevant:
 				// and now the definition of ADF(1)
@@ -218,7 +238,7 @@ public class Tick4JProblem extends GPProblem {
 		// ----------------------------------------------------------------------
 		config.setGPFitnessEvaluator(new DefaultGPFitnessEvaluator());
 		config.setMaxInitDepth(10);
-		config.setPopulationSize(100);
+		config.setPopulationSize(1000);
 		config.setMaxCrossoverDepth(20);
 		config.setFitnessFunction(new Tick4JProblem.FormulaFitnessFunction(set));
 		config.setStrictProgramCreation(false);
@@ -271,12 +291,12 @@ public class Tick4JProblem extends GPProblem {
 		        
 		        //System.out.println(function);
 		        BasicStrategy strategy = new BasicStrategyBuilder()
-		                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,function).build()))
-		                //.addAction(new SellExpAction(new TALibExpressionBuilder(set,"C>SMA(c,20)").build()))
-		                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-5)").build(),0,positions))
-		                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+5)").build(),0,positions))
-		                .build();
-		        strategy.setMaxOpenPositionCount(4);
+		                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"(TRIX((max((min((max((tema(l,29)),29)),29)),29)),24))<0").build()))
+		                .addAction(new SellExpAction(new TALibExpressionBuilder(set,function).build()))
+		                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set, "(RSI((dema(o,27)),28))<(MFI(27))").build(), 0, positions))
+		                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set, "(RSI(h,8))>89").build(),0,positions))
+						.build();
+		        strategy.setMaxOpenPositionCount(1);
 		        double lastClose = 0;
 		        set.begin();
 		        while (set.next()){
@@ -284,6 +304,7 @@ public class Tick4JProblem extends GPProblem {
 		            lastClose = set.getRow().getClose();
 		        }
 		        set.reset();
+				set.clearSubsets();
 		        
 		        PositionCalculator positionCalculator = new PositionCalculator(positions, lastClose);
 		        positionCalculator.calculate();

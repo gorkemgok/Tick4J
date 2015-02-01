@@ -40,7 +40,7 @@ public class CustomFunction extends CommandGene implements IMutateable, ICloneab
 	private final int childCount;
 	private boolean isOperator = true;
 	
-	private final static String[] MA_TYPE_FUNCTIONS = {"SMA","WMA","DEMA"};
+	private final static String[] MA_TYPE_FUNCTIONS = {"SMA","WMA","DEMA","TEMA","MIN","MAX","KAMA"};
 	private final static String[] RSI_TYPE_FUNCTIONS = {"RSI"};
 	private final static String[] COMP_OPERATORS = {"<",">","=",">=","<="};
 	private final static String[] LOGIC_OPERATORS = {"&","|"};

@@ -9,7 +9,7 @@ public class Exp4jPosFunction extends Function {
 	private final static String POS_FUNCTION_PREFIX = "P_";
 	private DataSet set;
 	public Exp4jPosFunction(DataSet set,String name, int argumentCount) {
-		super(POS_FUNCTION_PREFIX+name, argumentCount);
+		super(name, argumentCount);
 		this.set = set; 
 	}
 

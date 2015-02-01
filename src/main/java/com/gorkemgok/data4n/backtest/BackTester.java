@@ -3,6 +3,7 @@ package com.gorkemgok.data4n.backtest;
 import com.gorkemgok.data4n.backtest.action.BuyExpAction;
 import com.gorkemgok.data4n.backtest.action.ClosePositionExpAction;
 
+import com.gorkemgok.data4n.backtest.action.SellExpAction;
 import com.gorkemgok.data4n.backtest.strategy.BasicStrategy;
 import com.gorkemgok.data4n.backtest.strategy.BasicStrategyBuilder;
 import com.gorkemgok.data4n.core.set.TickDataSet;
@@ -19,20 +20,20 @@ import java.text.ParseException;
 public class BackTester {
     public static void main(String[] args) throws IOException, ParseException {
         TickDataSet set = new TickDataSet("VOBO30","5DK");
-        CSVLoader loader = new CSVLoader("resources/vob30_5dk_15-19Agust.csv","DATE>MM/dd/yy kk:mm:SSS,HOUR,OPEN,HIGH,LOW,CLOSE,VOLUME");
+        CSVLoader loader = new CSVLoader("resources/vob30_5dk.csv","DATE>MM/dd/yy kk:mm:SSS,HOUR,OPEN,HIGH,LOW,CLOSE,VOLUME");
         loader.addListener(new CSVTickListener(set));
         loader.load();
 
         Positions positions = new Positions();
 
         BasicStrategy strategy = new BasicStrategyBuilder()
-                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"((TRIX(h,29))<(TRIX(o,29)))&(((WMA(l,12))>H)&(33<(RSI(c,25))))").build()))
-                //.addAction(new SellExpAction(new TALibExpressionBuilder(set,"C>SMA(c,20)").build()))
-                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C<(P-5)").build(),0,positions))
-                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set,"C>(P+5)").build(),0,positions))
+                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"(TRIX((max((min((max((tema(l,29)),29)),29)),29)),24))<0").build()))
+                //.addAction(new SellExpAction(new TALibExpressionBuilder(set, "((WMA((max((min((max(c,18)),16)),18)),5))<L)&(AVGPRICE()>(MAX(o,16)))").build()))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set, "(RSI((dema(o,27)),28))<(MFI(27))").build(), 0, positions))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set, "(RSI(h,8))>89").build(), 0, positions))
                 .build();
         
-        strategy.setMaxOpenPositionCount(4);
+        strategy.setMaxOpenPositionCount(3);
         double lastClose = 0;
         set.begin();
         while (set.next()){
