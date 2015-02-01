@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Data4N.iml" filepath="$PROJECT_DIR$/.idea/Data4N.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Tick4J.iml" filepath="$PROJECT_DIR$/.idea/Tick4J.iml" />
     </modules>
   </component>
 </project>
-
