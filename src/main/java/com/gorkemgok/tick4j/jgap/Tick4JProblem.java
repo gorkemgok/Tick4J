@@ -11,18 +11,20 @@ package com.gorkemgok.tick4j.jgap;
  */
 import java.util.*;
 
-import com.gorkemgok.tick4j.backtest.action.SellExpAction;
 import org.jgap.*;
 import org.jgap.gp.*;
 import org.jgap.gp.impl.*;
 import org.jgap.gp.terminal.Variable;
 
-import com.gorkemgok.tick4j.backtest.PositionCalculator;
+import com.gorkemgok.tick4j.backtest.ProfitCalculator;
 import com.gorkemgok.tick4j.backtest.Positions;
 import com.gorkemgok.tick4j.backtest.action.BuyExpAction;
 import com.gorkemgok.tick4j.backtest.action.ClosePositionExpAction;
+import com.gorkemgok.tick4j.backtest.commission.ConstantSpreadCommission;
+import com.gorkemgok.tick4j.backtest.commission.ICommission;
 import com.gorkemgok.tick4j.backtest.strategy.BasicStrategy;
 import com.gorkemgok.tick4j.backtest.strategy.BasicStrategyBuilder;
+import com.gorkemgok.tick4j.core.row.TickDataRow;
 import com.gorkemgok.tick4j.core.set.TickDataSet;
 import com.gorkemgok.tick4j.jgap.dummy.IntegerIntervalRSIType;
 import com.gorkemgok.tick4j.jgap.dummy.IntegerIntervalZeroBased;
@@ -288,25 +290,34 @@ public class Tick4JProblem extends GPProblem {
 			String function = ind.toStringNorm(0).split("==>")[0];
 			try{
 		        Positions positions = new Positions();
-		        
+		        ICommission commission = new ConstantSpreadCommission(1d);
 		        //System.out.println(function);
-		        BasicStrategy strategy = new BasicStrategyBuilder()
+		        /*BasicStrategy strategy = new BasicStrategyBuilder()
 		                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,"(TRIX((max((min((max((tema(l,29)),29)),29)),29)),24))<0").build()))
 		                .addAction(new SellExpAction(new TALibExpressionBuilder(set,function).build()))
 		                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set, "(RSI((dema(o,27)),28))<(MFI(27))").build(), 0, positions))
 		                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set, "(RSI(h,8))>89").build(),0,positions))
-						.build();
+						.build();*/
+		        BasicStrategy strategy = new BasicStrategyBuilder()
+                .addAction(new BuyExpAction(new TALibExpressionBuilder(set,function).build()))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set, "C<(P-5)").build(), 0, positions))
+                .addAction(new ClosePositionExpAction(new TALibExpressionBuilder(set, "C>(P+5)").build(),0,positions))
+				.build();
 		        strategy.setMaxOpenPositionCount(1);
 		        double lastClose = 0;
+		        Date lastDate = null;
 		        set.begin();
 		        while (set.next()){
 		            strategy.apply(set,positions);
-		            lastClose = set.getRow().getClose();
+		            TickDataRow row = set.getRow();
+		            lastClose = row.getClose();
+		            lastDate = row.getDate();
 		        }
 		        set.reset();
 				set.clearSubsets();
 		        
-		        PositionCalculator positionCalculator = new PositionCalculator(positions, lastClose);
+		        ProfitCalculator positionCalculator = new ProfitCalculator(positions, commission, lastClose, lastDate);
+		        positionCalculator.setVerbose(false);
 		        positionCalculator.calculate();
 		        double profit = positionCalculator.getProfit();
 		        //System.out.println("PROFIT:"+profit);
