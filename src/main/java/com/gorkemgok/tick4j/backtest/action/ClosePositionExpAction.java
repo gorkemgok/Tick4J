@@ -5,6 +5,7 @@ import com.gorkemgok.tick4j.backtest.Positions;
 import com.gorkemgok.tick4j.backtest.action.result.ActionResult;
 import com.gorkemgok.tick4j.backtest.action.result.ClosePositionActionResult;
 import com.gorkemgok.tick4j.backtest.action.result.NoActionResult;
+import com.gorkemgok.tick4j.core.row.TickDataRow;
 import com.gorkemgok.tick4j.core.set.TickDataSet;
 
 import net.objecthunter.exp4j.Expression;
@@ -30,7 +31,8 @@ public class ClosePositionExpAction extends ExpressionAction implements IAction{
 	            expression.setVariable("P",position.getOpenPrice());
 	            double expressionResult = expression.evaluate();
 	            if (expressionResult==1d){
-	                position.close(set.getRow().getClose());//TODO: hangi fiyattan alim satim yapilacagi secilebilsin
+	            	TickDataRow row = set.getRow();
+	                position.close(row.getClose(),row.getDate());//TODO: hangi fiyattan(O,H,L,C) alim satim yapilacagi secilebilsin
 	                ar.getPositions().addPosition(position);
 	                hasClosedPosition = true;
 	            }
