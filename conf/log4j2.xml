@@ -10,7 +10,7 @@
     </Appenders>
     <Loggers>
         <Root level="debug">
-            <AppenderRef ref="Console" />
+            <!--<AppenderRef ref="Console" />-->
             <AppenderRef ref="T4JFile"/>
         </Root>
     </Loggers>
