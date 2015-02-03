@@ -3,6 +3,8 @@
 .settings
 .project
 .classpath
+*.log
+*.log.*
 # Package Files #
 *.war
 *.ear
