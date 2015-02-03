@@ -33,6 +33,7 @@ import com.gorkemgok.tick4j.jgap.dummy.TimePeriod;
 import com.gorkemgok.tick4j.jgap.functions.CustomFunction;
 import com.gorkemgok.tick4j.jgap.functions.Terminal;
 import com.gorkemgok.tick4j.listener.CSVTickListener;
+import com.gorkemgok.tick4j.util.Log;
 import com.gorkemgok.tick4j.util.TALibExpressionBuilder;
 import com.gorkemgok.tick4j.util.csv.CSVLoader;
 
@@ -324,8 +325,8 @@ public class Tick4JProblem extends GPProblem {
 		        //return fitness++;
 		        return profit>0?profit:0;
 			}catch(ArithmeticException e){
-				//e.printStackTrace();
-				//System.out.println(function);
+				Log.get().error(function);
+				Log.get().error(e);
 			}
 			return 0;
 		}

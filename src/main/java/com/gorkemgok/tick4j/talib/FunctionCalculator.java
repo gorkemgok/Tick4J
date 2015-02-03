@@ -102,7 +102,7 @@ public class FunctionCalculator {
 						case 6 : allParams[j++] = MAType.Kama;break;
 						case 7 : allParams[j++] = MAType.Mama;break;
 						case 8 : allParams[j++] = MAType.T3;break;
-					};
+					}
 				}else{
 					allParams[j++] = optIntParam;
 				}
