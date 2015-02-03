@@ -3,6 +3,7 @@ package com.gorkemgok.tick4j.backtest;
 import java.util.Date;
 
 import com.gorkemgok.tick4j.backtest.commission.ICommission;
+import com.gorkemgok.tick4j.util.Log;
 
 public class ProfitCalculator {
 	private Positions positions;
@@ -25,7 +26,7 @@ public class ProfitCalculator {
         	if (!position.isClosed()) position.close(lastClose,lastDate);
             profit += position.calculateProfit() - commission.calculate(position);
             if (verbose){
-            	System.out.println(position);
+            	Log.get(this).info(position);
             }
         }
 	}
