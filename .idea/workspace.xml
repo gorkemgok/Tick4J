@@ -2,91 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="312ca4b3-1d76-466e-9bae-30bc6b23fd1a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/IAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/strategy/IStrategy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/dummy/IntegerInterval.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/dummy/PricePos.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/Data4N.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/IAction.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/strategy/IStrategy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/jgap/dummy/IntegerInterval.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/jgap/dummy/PricePos.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/example/com/gorkemgok/data4n/example/CallIndicator.java" afterPath="$PROJECT_DIR$/src/main/example/com/gorkemgok/tick4j/example/CallIndicator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/BackTester.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/BackTester.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/Position.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/Position.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/PositionCalculator.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/PositionCalculator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/Positions.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/Positions.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/BuyExpAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/BuyExpAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/ClosePositionExpAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/ClosePositionExpAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/ExpressionAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/ExpressionAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/OpenPositionExpAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/OpenPositionExpAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/SellExpAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/SellExpAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/result/ActionResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/result/ActionResult.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/result/ClosePositionActionResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/result/ClosePositionActionResult.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/action/result/NoActionResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/action/result/NoActionResult.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/strategy/BasicStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/strategy/BasicStrategy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/strategy/BasicStrategyBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/strategy/BasicStrategyBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/row/AbstractDataRow.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/row/AbstractDataRow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/row/CalculatedDataRow.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/row/CalculatedDataRow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/row/DynamicDataRow.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/row/DynamicDataRow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/row/IDataRow.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/row/IDataRow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/row/TickDataRow.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/row/TickDataRow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/set/CalculatedDataSet.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/set/CalculatedDataSet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/set/DataSet.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/set/DataSet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/set/IDataSet.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/set/IDataSet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/set/IIterableDataSet.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/set/IIterableDataSet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/set/TickDataSet.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/set/TickDataSet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/type/Data.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/type/Data.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/type/DateData.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/type/DateData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/type/DoubleData.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/type/DoubleData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/core/type/SignalData.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/type/SignalData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/jgap/Tick4JProblem.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/Tick4JProblem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/jgap/dummy/IntegerIntervalRSIType.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/dummy/IntegerIntervalRSIType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/jgap/dummy/IntegerIntervalZeroBased.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/dummy/IntegerIntervalZeroBased.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/jgap/dummy/TimePeriod.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/dummy/TimePeriod.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/jgap/functions/CustomFunction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/functions/CustomFunction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/jgap/functions/Terminal.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/functions/Terminal.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/listener/AbstractTickListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/listener/AbstractTickListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/listener/CSVTickListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/listener/CSVTickListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/listener/ICSVTickListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/listener/ICSVTickListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/listener/ITickListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/listener/ITickListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/listener/TickListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/listener/TickListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/Model.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/Model.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/ModelFileLoader.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/ModelFileLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/ModelInterpreter.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/ModelInterpreter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/Calculator.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/Calculator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/Divide.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/Divide.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/IFunction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/IFunction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/MinMaxNormalizer.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/MinMaxNormalizer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/Multiply.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/Multiply.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/ReverseMinMaxNormalizer.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/ReverseMinMaxNormalizer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/Sigmoid.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/Sigmoid.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/SigmoidPlus.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/SigmoidPlus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/Square.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/Square.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/SquareRoot.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/SquareRoot.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/model/function/Unit.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/model/function/Unit.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/talib/Exp4jFunction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/talib/Exp4jFunction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/talib/Exp4jPosFunction.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/talib/Exp4jPosFunction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/talib/Function.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/talib/Function.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/talib/FunctionCalculator.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/talib/FunctionCalculator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/talib/TALibFunctions.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/talib/TALibFunctions.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/ArrayMutator.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/util/ArrayMutator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/Console.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/util/Console.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/DoubleArray.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/util/DoubleArray.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/Prerequisite.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/util/Prerequisite.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/PrerequisiteException.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/util/PrerequisiteException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/TALibExpressionBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/util/TALibExpressionBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/csv/CSVFormat.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/util/csv/CSVFormat.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/csv/CSVLoader.java" afterPath="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/util/csv/CSVLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/gorkemgok/data4n/dataset/TestDataSet.java" afterPath="$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/dataset/TestDataSet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/gorkemgok/data4n/talib/Exp4jFunctionTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/talib/Exp4jFunctionTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/gorkemgok/data4n/talib/FunctionCalculatorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/talib/FunctionCalculatorTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/gorkemgok/data4n/talib/FunctionsTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/talib/FunctionsTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/gorkemgok/data4n/util/ArrayMutatorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/util/ArrayMutatorTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/gorkemgok/data4n/util/DoubleArrayTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/util/DoubleArrayTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/gorkemgok/data4n/util/csv/CSVFormatTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/util/csv/CSVFormatTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/gorkemgok/data4n/util/csv/CSVLoaderTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/util/csv/CSVLoaderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/javacsv.jar" afterPath="$PROJECT_DIR$/lib/javacsv.jar" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/ta-lib.jar" afterPath="$PROJECT_DIR$/lib/ta-lib.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="085c0470-9e7f-4bcb-a9ba-0a32fdd39670" name="Rejected commit: Default" comment="Examples added" />
@@ -114,16 +33,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Tick4JProblem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/Tick4JProblem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3830" max-vertical-offset="4560">
-              <caret line="301" column="35" selection-start-line="301" selection-start-column="35" selection-end-line="301" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Exp4jPosFunction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/talib/Exp4jPosFunction.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -134,14 +43,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomFunction.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/functions/CustomFunction.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58189654" vertical-offset="1380" max-vertical-offset="1965">
-              <caret line="110" column="15" selection-start-line="110" selection-start-column="15" selection-end-line="110" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.61503416" vertical-offset="870" max-vertical-offset="2265">
+              <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,7 +56,7 @@
       <file leaf-file-name="Positions.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/Positions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="450">
               <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
               <folding />
             </state>
@@ -159,18 +66,8 @@
       <file leaf-file-name="BackTester.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/BackTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="675">
-              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PositionCalculator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/PositionCalculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="465">
-              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="960">
+              <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -189,7 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/CsvReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/csv/CSVReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/listener/ICSVTickListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/util/CSVLoader.java" />
@@ -240,6 +136,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/PositionCalculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gorkemgok/data4n/backtest/BackTester.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/functions/CustomFunction.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -247,15 +144,81 @@
     <detection-done>true</detection-done>
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$USER_HOME$/Dev/apache-maven-3.2.5" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Tick4J" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Tick4J" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Run Configurations" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RunConfigurationsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Tick4J" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Tick4J" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="height" value="725" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -285,7 +248,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -293,6 +255,64 @@
               <option name="myItemId" value="Data4N" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data4N" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javacsv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data4N" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javacsv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javacsv.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data4N" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javacsv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javacsv.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="csvreader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -301,6 +321,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Data4N" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data4N" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data4N" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,92 +349,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tick4j" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tick4j" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="talib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tick4j" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -429,10 +377,6 @@
               <option name="myItemId" value="tick4j" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jgap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -452,19 +396,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="example" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tick4j" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jgap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="functions" />
+              <option name="myItemId" value="example" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -478,145 +414,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tick4j" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jgap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dummy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tick4j" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tick4j" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="set" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tick4j" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backtest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data4N" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -627,12 +432,12 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="MavenSettings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/ta-lib.jar!/" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.23705408" />
@@ -679,7 +484,7 @@
       <recent name="com.gorkemgok.data4n" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BackTester">
+  <component name="RunManager" selected="Maven.Tick4J [deploy]">
     <configuration default="false" name="FunctionCalculatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -830,6 +635,28 @@
       <setting name="launchBrowser" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -969,7 +796,7 @@
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="JAR_PATH" value="$PROJECT_DIR$/libs/javacsv.jar" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/ta-lib.jar" />
       <envs />
       <method />
     </configuration>
@@ -1109,7 +936,34 @@
       <patterns />
       <method />
     </configuration>
-    <list size="7">
+    <configuration default="false" name="Tick4J [deploy]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="deploy" />
+                <option value="-DskipTests" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="JUnit.com.gorkemgok.data4n.test.csv in Data4N" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.com.gorkemgok.tick4j.util.csv in Data4N" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.FunctionCalculatorTest" />
@@ -1117,6 +971,7 @@
       <item index="4" class="java.lang.String" itemvalue="JUnit.Exp4jFunctionTest" />
       <item index="5" class="java.lang.String" itemvalue="Application.BackTester" />
       <item index="6" class="java.lang.String" itemvalue="Application.Tick4JProblem" />
+      <item index="7" class="java.lang.String" itemvalue="Maven.Tick4J [deploy]" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -1155,7 +1010,8 @@
       <workItem from="1421866744441" duration="215000" />
       <workItem from="1422642794974" duration="3127000" />
       <workItem from="1422647380587" duration="2864000" />
-      <workItem from="1422828471593" duration="247000" />
+      <workItem from="1422828471593" duration="412000" />
+      <workItem from="1423052044086" duration="1753000" />
     </task>
     <task id="LOCAL-00001" summary="Added TALib function with muiltiple output support">
       <created>1421502054454</created>
@@ -1205,56 +1061,62 @@
       <option name="project" value="LOCAL" />
       <updated>1422828593832</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed packet name from &quot;data4n&quot; to &quot;tick4j&quot;">
+      <created>1422828790593</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1422828790593</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40621000" />
+    <option name="totallyTimeSpent" value="42539000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="725" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.56623584" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3260274" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2622433" sideWeight="0.3828756" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27786753" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20958903" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3260274" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21011059" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27786753" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27786753" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2622433" sideWeight="0.6171244" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2630137" sideWeight="0.6171244" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.56623584" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3260274" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3187251" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3187251" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1273,8 +1135,8 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -1304,7 +1166,8 @@
     <MESSAGE value="Added clearSubset functionality to prevent memory leak" />
     <MESSAGE value="Changed class name" />
     <MESSAGE value="Improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improvements" />
+    <MESSAGE value="Changed packet name from &quot;data4n&quot; to &quot;tick4j&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed packet name from &quot;data4n&quot; to &quot;tick4j&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1328,13 +1191,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/row/TickDataRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24827586" vertical-offset="0" max-vertical-offset="725">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/core/type/DateData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
@@ -1485,14 +1341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/listener/CSVTickListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/gorkemgok/tick4j/talib/Exp4jFunctionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
@@ -1504,9 +1352,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1542,11 +1387,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27698863" vertical-offset="0" max-vertical-offset="704">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#334#335#0" expanded="false" />
-            <element signature="e#378#379#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1554,9 +1394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1278409" vertical-offset="0" max-vertical-offset="704">
           <caret line="10" column="3" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1564,9 +1401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="600">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1574,13 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#438#439#0" expanded="false" />
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#799#800#0" expanded="false" />
-            <element signature="e#835#836#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1588,9 +1415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6605114" vertical-offset="0" max-vertical-offset="704">
           <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1598,7 +1422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61647725" vertical-offset="406" max-vertical-offset="1110">
           <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1613,17 +1436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
           <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/talib/TALibFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="332" max-vertical-offset="900">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1639,7 +1451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1647,10 +1458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="888" max-vertical-offset="1590">
           <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
-          <folding>
-            <element signature="e#2206#2207#0" expanded="false" />
-            <element signature="e#2225#2226#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1686,26 +1493,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/PositionCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/backtest/BackTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="675">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/Tick4JProblem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3830" max-vertical-offset="4560">
-          <caret line="301" column="35" selection-start-line="301" selection-start-column="35" selection-end-line="301" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="960">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1726,13 +1517,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/jgap/functions/CustomFunction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/listener/CSVTickListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58189654" vertical-offset="1380" max-vertical-offset="1965">
-          <caret line="110" column="15" selection-start-line="110" selection-start-column="15" selection-end-line="110" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.06833713" vertical-offset="0" max-vertical-offset="675">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gorkemgok/tick4j/talib/TALibFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20501138" vertical-offset="0" max-vertical-offset="1005">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61503416" vertical-offset="870" max-vertical-offset="2265">
+          <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

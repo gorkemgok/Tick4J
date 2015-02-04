@@ -23,8 +23,8 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="Data4N" />
+        <module name="Tick4J" />
       </profile>
     </annotationProcessing>
   </component>
 </project>
-
