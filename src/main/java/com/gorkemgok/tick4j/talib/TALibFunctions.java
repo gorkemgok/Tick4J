@@ -10,18 +10,18 @@ import com.tictactec.ta.lib.meta.annotation.OptInputParameterInfo;
 import com.tictactec.ta.lib.meta.annotation.OutputParameterInfo;
 
 public class TALibFunctions {
-	private static TALibFunction[] TALibFunctions;
+	private static TALibFunction[] talibFunctions;
 	static{
-		TALibFunctions = TALibFunctions.loadFunctions();
+		talibFunctions = TALibFunctions.loadFunctions();
 	}
 	public static TALibFunction getFunction(String name){
-		for (TALibFunction f : TALibFunctions){
+		for (TALibFunction f : talibFunctions){
 			if (f.getName().equals(name)) return f;
 		}
 		throw new RuntimeException("No such function "+name);
 	}
 	public static TALibFunction[] getTALibFunctions(){
-		return TALibFunctions;
+		return talibFunctions;
 	}
 	private static TALibFunction[] loadFunctions(){
 		Method[] methods = null;
