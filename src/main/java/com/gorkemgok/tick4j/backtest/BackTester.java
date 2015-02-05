@@ -10,7 +10,7 @@ import com.gorkemgok.tick4j.core.row.TickDataRow;
 import com.gorkemgok.tick4j.core.set.TickDataSet;
 import com.gorkemgok.tick4j.listener.CSVTickListener;
 import com.gorkemgok.tick4j.util.Log;
-import com.gorkemgok.tick4j.util.TALibExpressionBuilder;
+import com.gorkemgok.tick4j.talib.TALibExpressionBuilder;
 import com.gorkemgok.tick4j.util.csv.CSVLoader;
 
 import java.io.IOException;

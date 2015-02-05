@@ -1,9 +1,11 @@
-package com.gorkemgok.tick4j.talib;
+package com.gorkemgok.tick4j.exp4j;
 
 import com.gorkemgok.tick4j.core.row.IDataRow;
 import com.gorkemgok.tick4j.core.set.CalculatedDataSet;
 import com.gorkemgok.tick4j.core.set.DataSet;
 
+import com.gorkemgok.tick4j.talib.TALibFunctionCalculator;
+import com.gorkemgok.tick4j.talib.TALibFunctions;
 import net.objecthunter.exp4j.function.Function;
 
 public class Exp4jFunction extends Function {
@@ -18,7 +20,7 @@ public class Exp4jFunction extends Function {
 		//TODO:control if parameter count
 		int setIndex = set.hasDataSet(new CalculatedDataSet(name, params));
 		if (setIndex==-1){
-			FunctionCalculator calculator = new FunctionCalculator(TALibFunctions.getFunction(super.name),set);
+			TALibFunctionCalculator calculator = new TALibFunctionCalculator(TALibFunctions.getFunction(super.name),set);
 			calculator.calculate(params);
 		}
 		setIndex = set.hasDataSet(new CalculatedDataSet(name, params));

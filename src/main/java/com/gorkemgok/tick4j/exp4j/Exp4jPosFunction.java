@@ -1,8 +1,10 @@
-package com.gorkemgok.tick4j.talib;
+package com.gorkemgok.tick4j.exp4j;
 
 import com.gorkemgok.tick4j.core.set.CalculatedDataSet;
 import com.gorkemgok.tick4j.core.set.DataSet;
 
+import com.gorkemgok.tick4j.talib.TALibFunctionCalculator;
+import com.gorkemgok.tick4j.talib.TALibFunctions;
 import net.objecthunter.exp4j.function.Function;
 
 public class Exp4jPosFunction extends Function {
@@ -20,7 +22,7 @@ public class Exp4jPosFunction extends Function {
 		String orgName = name.toUpperCase();
 		int setIndex = set.hasDataSet(new CalculatedDataSet(orgName, params));	
 		if (setIndex==-1){
-			FunctionCalculator calculator = new FunctionCalculator(TALibFunctions.getFunction(orgName),set);
+			TALibFunctionCalculator calculator = new TALibFunctionCalculator(TALibFunctions.getFunction(orgName),set);
 			calculator.calculate(params);
 		}
 		setIndex = set.hasDataSet(new CalculatedDataSet(orgName, params));

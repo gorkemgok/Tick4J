@@ -1,11 +1,9 @@
-package com.gorkemgok.tick4j.util;
+package com.gorkemgok.tick4j.talib;
 
 import com.gorkemgok.tick4j.core.row.TickDataRow;
 import com.gorkemgok.tick4j.core.set.DataSet;
-import com.gorkemgok.tick4j.talib.Exp4jFunction;
-import com.gorkemgok.tick4j.talib.Exp4jPosFunction;
-import com.gorkemgok.tick4j.talib.Function;
-import com.gorkemgok.tick4j.talib.TALibFunctions;
+import com.gorkemgok.tick4j.exp4j.Exp4jFunction;
+import com.gorkemgok.tick4j.exp4j.Exp4jPosFunction;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
@@ -16,9 +14,9 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 	public TALibExpressionBuilder(DataSet set,String expression) {
 		super(expression);
 		this.variables("P","o","h","l","c","v","O","H","L","C","V");
-		for (Function function : TALibFunctions.getFunctions()){
-			this.function(new Exp4jFunction(set,function.getName(),function.getInputParameterCount()))
-				.function(new Exp4jPosFunction(set,function.getName().toLowerCase(),function.getInputParameterCount()));
+		for (TALibFunction TALibFunction : TALibFunctions.getTALibFunctions()){
+			this.function(new Exp4jFunction(set, TALibFunction.getName(), TALibFunction.getInputParameterCount()))
+				.function(new Exp4jPosFunction(set, TALibFunction.getName().toLowerCase(), TALibFunction.getInputParameterCount()));
 		}
 		Operator gteq = new Operator(">=", 2, true, Operator.PRECEDENCE_ADDITION - 1) {
 			@Override

@@ -8,7 +8,7 @@ import com.gorkemgok.tick4j.core.row.TickDataRow;
 import com.gorkemgok.tick4j.core.set.CalculatedDataSet;
 import com.gorkemgok.tick4j.core.set.DataSet;
 import com.gorkemgok.tick4j.core.type.DoubleData;
-import com.gorkemgok.tick4j.talib.Function.Param;
+import com.gorkemgok.tick4j.talib.TALibFunction.Param;
 import com.gorkemgok.tick4j.util.DoubleArray;
 import com.tictactec.ta.lib.CoreAnnotated;
 import com.tictactec.ta.lib.MAType;
@@ -17,20 +17,20 @@ import com.tictactec.ta.lib.meta.annotation.InputParameterType;
 import com.tictactec.ta.lib.meta.annotation.OptInputParameterType;
 import com.tictactec.ta.lib.meta.annotation.OutputParameterType;
 
-public class FunctionCalculator {
-	private Function function;
+public class TALibFunctionCalculator {
+	private TALibFunction TALibFunction;
 	private DataSet set;
 	
-	public FunctionCalculator(Function function, DataSet set) {
+	public TALibFunctionCalculator(TALibFunction TALibFunction, DataSet set) {
 		super();
-		this.function = function;
+		this.TALibFunction = TALibFunction;
 		this.set = set;
 	}
 	
 	public void calculate(double... params){
 		ArrayList<Integer> priceColumns = new ArrayList<Integer>(); 
 		int paramIndex = 0;
-		for (Param p : function.getInputs()){
+		for (Param p : TALibFunction.getInputs()){
 			if (p.getType().equals(InputParameterType.TA_Input_Price.name())){
 				String prices = p.getName().substring(7,p.getName().length());
 				for (char c : prices.toCharArray()){
@@ -48,11 +48,11 @@ public class FunctionCalculator {
 		}
 		
 		double inputs[][] = new double[priceColumns.size()][];
-		Object[] optParams = new Object[function.getOptInputs().length];
-		Object[] outputs = new Object[function.getOutputs().length];
+		Object[] optParams = new Object[TALibFunction.getOptInputs().length];
+		Object[] outputs = new Object[TALibFunction.getOutputs().length];
 		
 		int optParamIndex = 0;
-		for (Param p : function.getOptInputs()){
+		for (Param p : TALibFunction.getOptInputs()){
 			if (p.getType().equals(OptInputParameterType.TA_OptInput_IntegerRange.name()) || p.getType().equals(OptInputParameterType.TA_OptInput_IntegerList.name())){
 				optParams[optParamIndex++] = (int)params[paramIndex++];
 			}else if (p.getType().equals(OptInputParameterType.TA_OptInput_RealRange.name()) || p.getType().equals(OptInputParameterType.TA_OptInput_RealList.name())){
@@ -69,7 +69,7 @@ public class FunctionCalculator {
 			inputs[i] = doubleArray.get(priceColumnsArray[i]);
 		}
 		for (int i = 0; i < outputs.length; i++) {
-			if (function.getOutputs()[i].getType().equals(OutputParameterType.TA_Output_Integer.toString())){
+			if (TALibFunction.getOutputs()[i].getType().equals(OutputParameterType.TA_Output_Integer.toString())){
 				outputs[i] = new int[endIdx+1];
 			}else{
 				outputs[i] = new double[endIdx+1];
@@ -87,7 +87,7 @@ public class FunctionCalculator {
 		}
 		int optIndex = 0;
 		for (Object optParam : optParams){
-			Param optInput = function.getOptInputs()[optIndex];
+			Param optInput = TALibFunction.getOptInputs()[optIndex];
 			if (optInput.getType().equals(OptInputParameterType.TA_OptInput_IntegerList.toString()) ||
 					optInput.getType().equals(OptInputParameterType.TA_OptInput_IntegerRange.toString())){
 				int optIntParam = (Integer)optParam;
@@ -118,7 +118,7 @@ public class FunctionCalculator {
 			allParams[j++] = out;		
 		}
 		try {
-			function.getTalibMethod().invoke(new CoreAnnotated(), allParams);
+			TALibFunction.getTalibMethod().invoke(new CoreAnnotated(), allParams);
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (IllegalArgumentException e) {
@@ -135,16 +135,16 @@ public class FunctionCalculator {
 			if (outputs.length>1){
 				calculatedDataSetParams[calculatedDataSetParams.length-1] = ni;
 			}
-			String calculatedDataSetName = function.getName();
-			/*if (function.getOutputs().length>1){
-				calculatedDataSetName += "_"+function.getOutputs()[ni].getName();
+			String calculatedDataSetName = TALibFunction.getName();
+			/*if (TALibFunction.getOutputs().length>1){
+				calculatedDataSetName += "_"+TALibFunction.getOutputs()[ni].getName();
 			}*/
 			CalculatedDataSet calculatedDataSet = new CalculatedDataSet(calculatedDataSetName,calculatedDataSetParams);
 			set.addSet(calculatedDataSet);
 			for (i = 0; i < outBegIdx.value; i++) {
 				calculatedDataSet.addRow(new CalculatedDataRow(new DoubleData(0d)));
 			}
-			if (function.getOutputs()[ni].getType().equals(OutputParameterType.TA_Output_Integer.toString())){
+			if (TALibFunction.getOutputs()[ni].getType().equals(OutputParameterType.TA_Output_Integer.toString())){
 				for (int o : (int[])out) {
 					calculatedDataSet.addRow(new CalculatedDataRow(new DoubleData((double) o)));
 				}

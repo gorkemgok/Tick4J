@@ -10,20 +10,20 @@ import com.tictactec.ta.lib.meta.annotation.OptInputParameterInfo;
 import com.tictactec.ta.lib.meta.annotation.OutputParameterInfo;
 
 public class TALibFunctions {
-	private static Function[] functions;
+	private static TALibFunction[] TALibFunctions;
 	static{
-		functions = TALibFunctions.loadFunctions();
+		TALibFunctions = TALibFunctions.loadFunctions();
 	}
-	public static Function getFunction(String name){
-		for (Function f : functions){
+	public static TALibFunction getFunction(String name){
+		for (TALibFunction f : TALibFunctions){
 			if (f.getName().equals(name)) return f;
 		}
-		throw new RuntimeException("No such function");
+		throw new RuntimeException("No such function "+name);
 	}
-	public static Function[] getFunctions(){
-		return functions;
+	public static TALibFunction[] getTALibFunctions(){
+		return TALibFunctions;
 	}
-	private static Function[] loadFunctions(){
+	private static TALibFunction[] loadFunctions(){
 		Method[] methods = null;
 		try {
 			methods = TALibFunctions.class
@@ -35,29 +35,29 @@ public class TALibFunctions {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		ArrayList<Function> functions = new ArrayList<Function>();
+		ArrayList<TALibFunction> TALibFunctions = new ArrayList<TALibFunction>();
 		for (Method m : methods) {
 			FuncInfo funcInfo = m.getAnnotation(FuncInfo.class);
 			if (funcInfo!=null){
-				Function function = new Function(m,funcInfo.name(),funcInfo.nbInput(),funcInfo.nbOptInput(),funcInfo.nbOutput());
-				functions.add(function);
+				TALibFunction TALibFunction = new TALibFunction(m,funcInfo.name(),funcInfo.nbInput(),funcInfo.nbOptInput(),funcInfo.nbOutput());
+				TALibFunctions.add(TALibFunction);
 				Annotation[][] prameterAnnotations = m.getParameterAnnotations();
 	            for (Annotation[] p : prameterAnnotations){
 	            	for (Annotation annotation : p){
 	            		if (annotation instanceof OutputParameterInfo){
 	            			OutputParameterInfo outputParameterInfo = (OutputParameterInfo)annotation;
-	            			function.addOutput(new Function.Param(outputParameterInfo.paramName(),outputParameterInfo.type().name()));
+	            			TALibFunction.addOutput(new TALibFunction.Param(outputParameterInfo.paramName(),outputParameterInfo.type().name()));
 	            		}else if (annotation instanceof InputParameterInfo){
 	            			InputParameterInfo inputParameterInfo = (InputParameterInfo)annotation;
-	            			function.addInput(new Function.Param(inputParameterInfo.paramName(),inputParameterInfo.type().name()));
+	            			TALibFunction.addInput(new TALibFunction.Param(inputParameterInfo.paramName(),inputParameterInfo.type().name()));
 	            		}else if (annotation instanceof OptInputParameterInfo){
 	            			OptInputParameterInfo optInputParameterInfo = (OptInputParameterInfo)annotation;
-	            			function.addOptInput(new Function.Param(optInputParameterInfo.paramName(),optInputParameterInfo.type().name()));
+	            			TALibFunction.addOptInput(new TALibFunction.Param(optInputParameterInfo.paramName(),optInputParameterInfo.type().name()));
 	            		}
 	            	}
 	            }
 			}
 		}
-		return functions.toArray(new Function[functions.size()]);
+		return TALibFunctions.toArray(new TALibFunction[TALibFunctions.size()]);
 	}
 }

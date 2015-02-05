@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import com.tictactec.ta.lib.meta.annotation.InputParameterType;
 
-public class Function {
+public class TALibFunction {
 	private String name;
 	private int inputCount;
 	private int optInputCount;
@@ -17,7 +17,7 @@ public class Function {
 	private ArrayList<Param> outputs = new ArrayList<Param>();
 	
 	
-	public Function(Method talibMethod,String name, int inputCount, int optInputCount, int outputCount) {
+	public TALibFunction(Method talibMethod, String name, int inputCount, int optInputCount, int outputCount) {
 		super();
 		this.talibMethod = talibMethod;
 		this.name = name;

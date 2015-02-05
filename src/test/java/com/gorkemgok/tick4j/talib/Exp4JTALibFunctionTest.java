@@ -12,10 +12,9 @@ import org.junit.Test;
 
 import com.gorkemgok.tick4j.core.set.TickDataSet;
 import com.gorkemgok.tick4j.listener.CSVTickListener;
-import com.gorkemgok.tick4j.util.TALibExpressionBuilder;
 import com.gorkemgok.tick4j.util.csv.CSVLoader;
 
-public class Exp4jFunctionTest {
+public class Exp4JTALibFunctionTest {
 	TickDataSet set;
 	@Before
 	public void initialize() throws IOException, ParseException{
