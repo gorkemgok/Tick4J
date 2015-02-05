@@ -13,7 +13,7 @@ import com.gorkemgok.tick4j.core.set.TickDataSet;
 import com.gorkemgok.tick4j.listener.CSVTickListener;
 import com.gorkemgok.tick4j.util.csv.CSVLoader;
 
-public class TALibTALibFunctionCalculatorTest {
+public class TALibFunctionCalculatorTest {
 	private TickDataSet set;
 	@Before
 	public void initialize() throws IOException, ParseException{
@@ -25,8 +25,8 @@ public class TALibTALibFunctionCalculatorTest {
 	@Test
 	public void test() {
 		int period = 2;
-		TALibFunction[] TALibFunctions = TALibFunctions.getTALibFunctions();
-		for (TALibFunction TALibFunction : TALibFunctions){
+		TALibFunction[] talibFunctions = TALibFunctions.getTALibFunctions();
+		for (TALibFunction TALibFunction : talibFunctions){
 			if (TALibFunction.getName().equals("SMA")){
 				TALibFunctionCalculator calculator = new TALibFunctionCalculator(TALibFunction, set);
 				calculator.calculate(TickDataRow.CLOSE,period);
