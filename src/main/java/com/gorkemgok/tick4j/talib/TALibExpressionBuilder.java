@@ -2,8 +2,7 @@ package com.gorkemgok.tick4j.talib;
 
 import com.gorkemgok.tick4j.core.row.TickDataRow;
 import com.gorkemgok.tick4j.core.set.DataSet;
-import com.gorkemgok.tick4j.exp4j.Exp4jFunction;
-import com.gorkemgok.tick4j.exp4j.Exp4jPosFunction;
+import com.gorkemgok.tick4j.exp4j.*;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
@@ -18,6 +17,7 @@ public class TALibExpressionBuilder extends ExpressionBuilder {
 			this.function(new Exp4jFunction(set, TALibFunction.getName(), TALibFunction.getInputParameterCount()))
 				.function(new Exp4jPosFunction(set, TALibFunction.getName().toLowerCase(), TALibFunction.getInputParameterCount()));
 		}
+		this.function(new BuyFunction()).function(new SellFunction()).function(new StrategyFunction());
 		Operator gteq = new Operator(">=", 2, true, Operator.PRECEDENCE_ADDITION - 1) {
 			@Override
 			public double apply(double... values) {
