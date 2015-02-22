@@ -8,4 +8,5 @@ import com.gorkemgok.tick4j.core.set.TickDataSet;
  */
 public interface IStrategy {
     public void apply(TickDataSet set,Positions positions);
+    public void setMaxOpenPositionCount(int maxOpenPositionCount);
 }
